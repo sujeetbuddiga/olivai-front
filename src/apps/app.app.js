@@ -1,0 +1,7 @@
+require("../../node_modules/bootstrap/dist/css/bootstrap.min.css")
+// require("../../node_modules/bootstrap/dist/js/bootstrap")
+require("../../node_modules/font-awesome/css/font-awesome.min.css")
+// require('jquery')
+const riot = require("../common-config")
+require("./app.app.tag")
+riot.mount('app')
