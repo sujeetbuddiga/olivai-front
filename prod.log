@@ -1,0 +1,40 @@
+Hash: fb65894fa0169009e99f
+Version: webpack 3.11.0
+Time: 21037ms
+                            Asset     Size  Chunks                    Chunk Names
+               css/app.bundle.css   185 kB       0  [emitted]         app
+    fonts/fontawesome-webfont.eot   166 kB          [emitted]         
+   fonts/fontawesome-webfont.woff    98 kB          [emitted]         
+    fonts/fontawesome-webfont.ttf   166 kB          [emitted]         
+   images/fontawesome-webfont.svg   444 kB          [emitted]  [big]  
+                 js/app.bundle.js   404 kB       0  [emitted]  [big]  app
+  fonts/fontawesome-webfont.woff2  77.2 kB          [emitted]         
+                   pages/app.html  1.03 kB          [emitted]         
+            css/app.bundle.css.gz  30.1 kB          [emitted]         
+ fonts/fontawesome-webfont.ttf.gz  98.1 kB          [emitted]         
+ fonts/fontawesome-webfont.eot.gz  98.2 kB          [emitted]         
+images/fontawesome-webfont.svg.gz   134 kB          [emitted]         
+              js/app.bundle.js.gz   117 kB          [emitted]         
+   [2] ./src/apps/app.app.js 300 bytes {0} [built]
+   [5] ./src/common-config.js 1.48 kB {0} [built]
+   [9] ./src/apps/app.app.tag 831 bytes {0} [built]
+  [10] ./src/cmp/search-result-list.cmp.tag 2.23 kB {0} [built]
+  [11] ./src/cmp/search-result-compact-card.cmp.tag 811 bytes {0} [built]
+  [12] ./src/cmp/ratings-cmp.tag 1.17 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 4.97 kB {0} [built]
+  [14] ./src/cmp/restaurant-detail.cmp.tag 1.63 kB {0} [built]
+    + 19 hidden modules
+
+ERROR in js/app.bundle.js from UglifyJs
+Unexpected token: name (sum) [js/app.bundle.js:14429,16]
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       [0] ./node_modules/html-webpack-plugin/lib/loader.js!./src/pages/app.page.html 1.45 kB {0} [built]
+       [2] (webpack)/buildin/global.js 509 bytes {0} [built]
+       [3] (webpack)/buildin/module.js 517 bytes {0} [built]
+        + 1 hidden module
+Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--1-2!node_modules/font-awesome/css/font-awesome.min.css:
+     5 assets
+       9 modules
+Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--1-2!node_modules/bootstrap/dist/css/bootstrap.min.css:
+       2 modules

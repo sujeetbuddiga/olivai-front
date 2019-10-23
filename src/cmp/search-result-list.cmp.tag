@@ -33,7 +33,6 @@ require("./search-result-compact-card.cmp.tag")
         }
 
         self.on('route', function () {
-            debugger
             if (self.opts.searched) {
                 var data = self.route.query()
                 self.getSharedObservable().trigger('location-updated', data);
@@ -54,6 +53,7 @@ require("./search-result-compact-card.cmp.tag")
                 var data = response['businesses'];
                 self.items = data;
                 self.update();
+                self.getSharedObservable().trigger('update-pins', data);
             });
         })
         self.on('mount', function (params) {

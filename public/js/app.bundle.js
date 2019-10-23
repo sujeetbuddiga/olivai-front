@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -3157,729 +3157,6 @@
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(2)
-// require("../../node_modules/bootstrap/dist/js/bootstrap")
-__webpack_require__(3)
-// require('jquery')
-const riot = __webpack_require__(4)
-__webpack_require__(8)
-riot.mount('app')
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var riot = __webpack_require__(0);
-var route = __webpack_require__(5);
-var sharedObservable = riot.observable();
-route.parser(null, function (path, filter) {
-    var f = filter
-      .replace(/\?/g, '\\?')
-      .replace(/\*/g, '([^/?#]+?)')
-      .replace(/\.\./, '.*');
-  
-    var re = new RegExp(("^" + f + "$"));
-    var args = path.match(re);
-  
-    if (args) {
-      var value = args.slice(1)
-      if (value.length) return value
-      else {
-        var uri = args[0].split('?')
-        return uri[0].split('/')
-      }
-    }
-  })
-  
-
-// route.parser(null, function (path, filter) {
-//     var f = filter
-//         .replace(/\?/g, '\\?')
-//         .replace(/\*/g, '([^/?#]+?)')
-//         .replace(/\.\./, '.*');
-
-//     var re = new RegExp(("^" + f + "$"));
-//     var args = path.match(re);
-
-//     if (args) {
-//         var value = args.slice(1)
-//         if (value.length) return value
-//         else {
-//             var uri = args[0].split('?')
-//             return uri[0].split('/')
-//         }
-//     }
-// })
-var registerMountedComponentsMixin = {
-    init: function () {
-        // this.globalObj = globalObj;
-        this.route = route;
-        this.on('route', function (currentNode) {
-            var self = this;
-            this.route = route;
-            var query = self.route.query()
-        })
-    },
-    getSharedObservable: function (params) {
-        return sharedObservable;
-    }
-
-
-}
-riot.mixin(registerMountedComponentsMixin);
-
-module.exports = riot;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var riot = _interopDefault(__webpack_require__(0));
-var route = _interopDefault(__webpack_require__(6));
-
-riot.tag2('router', '<yield></yield>', '', '', function(opts) {
-    var this$1 = this;
-
-
-    this.route = route.create();
-    this.select = function (target) {
-      [].concat(this$1.tags.route)
-        .forEach(function (r) { return r.show = (r === target); });
-    };
-
-    this.on('mount', function () {
-
-      window.setTimeout(function () { return route.start(true); }, 0);
-    });
-
-    this.on('unmount', function () {
-      this$1.route.stop();
-    });
-});
-
-riot.tag2('route', '<virtual if="{show}"><yield></yield></virtual>', '', '', function(opts) {
-    var this$1 = this;
-
-    this.show = false;
-    this.parent.route(opts.path, function () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-
-      this$1.one('updated', function () {
-        flatten(this$1.tags).forEach(function (tag) {
-          tag.trigger.apply(tag, [ 'route' ].concat( args ));
-          tag.update();
-        });
-      });
-      this$1.parent.select(this$1);
-      this$1.parent.update();
-    });
-
-    function flatten(tags) {
-      return Object.keys(tags)
-        .map(function (key) { return tags[key]; })
-        .reduce(function (acc, tag) { return acc.concat(tag); }, [])
-    }
-});
-
-module.exports = route;
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_riot_observable__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_riot_observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_riot_observable__);
-
-
-var RE_ORIGIN = /^.+?\/\/+[^/]+/,
-  EVENT_LISTENER = 'EventListener',
-  REMOVE_EVENT_LISTENER = 'remove' + EVENT_LISTENER,
-  ADD_EVENT_LISTENER = 'add' + EVENT_LISTENER,
-  HAS_ATTRIBUTE = 'hasAttribute',
-  POPSTATE = 'popstate',
-  HASHCHANGE = 'hashchange',
-  TRIGGER = 'trigger',
-  MAX_EMIT_STACK_LEVEL = 3,
-  win = typeof window != 'undefined' && window,
-  doc = typeof document != 'undefined' && document,
-  hist = win && history,
-  loc = win && (hist.location || win.location), // see html5-history-api
-  prot = Router.prototype, // to minify more
-  clickEvent = doc && doc.ontouchstart ? 'touchstart' : 'click',
-  central = __WEBPACK_IMPORTED_MODULE_0_riot_observable___default()();;;;;;;;;;;;;;;;
-
-var
-  started = false,
-  routeFound = false,
-  debouncedEmit,
-  base,
-  current,
-  parser,
-  secondParser,
-  emitStack = [],
-  emitStackLevel = 0;;;;;;;;;
-
-/**
- * Default parser. You can replace it via router.parser method.
- * @param {string} path - current path (normalized)
- * @returns {array} array
- */
-function DEFAULT_PARSER(path) {
-  return path.split(/[/?#]/)
-}
-
-/**
- * Default parser (second). You can replace it via router.parser method.
- * @param {string} path - current path (normalized)
- * @param {string} filter - filter string (normalized)
- * @returns {array} array
- */
-function DEFAULT_SECOND_PARSER(path, filter) {
-  var f = filter
-    .replace(/\?/g, '\\?')
-    .replace(/\*/g, '([^/?#]+?)')
-    .replace(/\.\./, '.*');
-  var re = new RegExp(("^" + f + "$"));
-  var args = path.match(re);
-
-  if (args) { return args.slice(1) }
-}
-
-/**
- * Simple/cheap debounce implementation
- * @param   {function} fn - callback
- * @param   {number} delay - delay in seconds
- * @returns {function} debounced function
- */
-function debounce(fn, delay) {
-  var t;
-  return function () {
-    clearTimeout(t);
-    t = setTimeout(fn, delay);
-  }
-}
-
-/**
- * Set the window listeners to trigger the routes
- * @param {boolean} autoExec - see route.start
- */
-function start(autoExec) {
-  debouncedEmit = debounce(emit, 1);
-  win[ADD_EVENT_LISTENER](POPSTATE, debouncedEmit);
-  win[ADD_EVENT_LISTENER](HASHCHANGE, debouncedEmit);
-  doc[ADD_EVENT_LISTENER](clickEvent, click);
-  if (autoExec) { emit(true); }
-}
-
-/**
- * Router class
- */
-function Router() {
-  this.$ = [];
-  __WEBPACK_IMPORTED_MODULE_0_riot_observable___default()(this); // make it observable
-  central.on('stop', this.s.bind(this));
-  central.on('emit', this.e.bind(this));
-}
-
-function normalize(path) {
-  return path.replace(/^\/|\/$/, '')
-}
-
-function isString(str) {
-  return typeof str == 'string'
-}
-
-/**
- * Get the part after domain name
- * @param {string} href - fullpath
- * @returns {string} path from root
- */
-function getPathFromRoot(href) {
-  return (href || loc.href).replace(RE_ORIGIN, '')
-}
-
-/**
- * Get the part after base
- * @param {string} href - fullpath
- * @returns {string} path from base
- */
-function getPathFromBase(href) {
-  return base[0] === '#'
-    ? (href || loc.href || '').split(base)[1] || ''
-    : (loc ? getPathFromRoot(href) : href || '').replace(base, '')
-}
-
-function emit(force) {
-  // the stack is needed for redirections
-  var isRoot = emitStackLevel === 0;
-  if (MAX_EMIT_STACK_LEVEL <= emitStackLevel) { return }
-
-  emitStackLevel++;
-  emitStack.push(function() {
-    var path = getPathFromBase();
-    if (force || path !== current) {
-      central[TRIGGER]('emit', path);
-      current = path;
-    }
-  });
-  if (isRoot) {
-    var first;
-    while (first = emitStack.shift()) { first(); } // stack increses within this call
-    emitStackLevel = 0;
-  }
-}
-
-function click(e) {
-  if (
-    e.which !== 1 // not left click
-    || e.metaKey || e.ctrlKey || e.shiftKey // or meta keys
-    || e.defaultPrevented // or default prevented
-  ) { return }
-
-  var el = e.target;
-  while (el && el.nodeName !== 'A') { el = el.parentNode; }
-
-  if (
-    !el || el.nodeName !== 'A' // not A tag
-    || el[HAS_ATTRIBUTE]('download') // has download attr
-    || !el[HAS_ATTRIBUTE]('href') // has no href attr
-    || el.target && el.target !== '_self' // another window or frame
-    || el.href.indexOf(loc.href.match(RE_ORIGIN)[0]) === -1 // cross origin
-  ) { return }
-
-  if (el.href !== loc.href
-    && (
-      el.href.split('#')[0] === loc.href.split('#')[0] // internal jump
-      || base[0] !== '#' && getPathFromRoot(el.href).indexOf(base) !== 0 // outside of base
-      || base[0] === '#' && el.href.split(base)[0] !== loc.href.split(base)[0] // outside of #base
-      || !go(getPathFromBase(el.href), el.title || doc.title) // route not found
-    )) { return }
-
-  e.preventDefault();
-}
-
-/**
- * Go to the path
- * @param {string} path - destination path
- * @param {string} title - page title
- * @param {boolean} shouldReplace - use replaceState or pushState
- * @returns {boolean} - route not found flag
- */
-function go(path, title, shouldReplace) {
-  // Server-side usage: directly execute handlers for the path
-  if (!hist) { return central[TRIGGER]('emit', getPathFromBase(path)) }
-
-  path = base + normalize(path);
-  title = title || doc.title;
-  // browsers ignores the second parameter `title`
-  shouldReplace
-    ? hist.replaceState(null, title, path)
-    : hist.pushState(null, title, path);
-  // so we need to set it manually
-  doc.title = title;
-  routeFound = false;
-  emit();
-  return routeFound
-}
-
-/**
- * Go to path or set action
- * a single string:                go there
- * two strings:                    go there with setting a title
- * two strings and boolean:        replace history with setting a title
- * a single function:              set an action on the default route
- * a string/RegExp and a function: set an action on the route
- * @param {(string|function)} first - path / action / filter
- * @param {(string|RegExp|function)} second - title / action
- * @param {boolean} third - replace flag
- */
-prot.m = function(first, second, third) {
-  if (isString(first) && (!second || isString(second))) { go(first, second, third || false); }
-  else if (second) { this.r(first, second); }
-  else { this.r('@', first); }
-};
-
-/**
- * Stop routing
- */
-prot.s = function() {
-  this.off('*');
-  this.$ = [];
-};
-
-/**
- * Emit
- * @param {string} path - path
- */
-prot.e = function(path) {
-  this.$.concat('@').some(function(filter) {
-    var args = (filter === '@' ? parser : secondParser)(normalize(path), normalize(filter));
-    if (typeof args != 'undefined') {
-      this[TRIGGER].apply(null, [filter].concat(args));
-      return routeFound = true // exit from loop
-    }
-  }, this);
-};
-
-/**
- * Register route
- * @param {string} filter - filter for matching to url
- * @param {function} action - action to register
- */
-prot.r = function(filter, action) {
-  if (filter !== '@') {
-    filter = '/' + normalize(filter);
-    this.$.push(filter);
-  }
-  this.on(filter, action);
-};
-
-var mainRouter = new Router();
-var route = mainRouter.m.bind(mainRouter);
-
-/**
- * Create a sub router
- * @returns {function} the method of a new Router object
- */
-route.create = function() {
-  var newSubRouter = new Router();
-  // assign sub-router's main method
-  var router = newSubRouter.m.bind(newSubRouter);
-  // stop only this sub-router
-  router.stop = newSubRouter.s.bind(newSubRouter);
-  return router
-};
-
-/**
- * Set the base of url
- * @param {(str|RegExp)} arg - a new base or '#' or '#!'
- */
-route.base = function(arg) {
-  base = arg || '#';
-  current = getPathFromBase(); // recalculate current path
-};
-
-/** Exec routing right now **/
-route.exec = function() {
-  emit(true);
-};
-
-/**
- * Replace the default router to yours
- * @param {function} fn - your parser function
- * @param {function} fn2 - your secondParser function
- */
-route.parser = function(fn, fn2) {
-  if (!fn && !fn2) {
-    // reset parser for testing...
-    parser = DEFAULT_PARSER;
-    secondParser = DEFAULT_SECOND_PARSER;
-  }
-  if (fn) { parser = fn; }
-  if (fn2) { secondParser = fn2; }
-};
-
-/**
- * Helper function to get url query as an object
- * @returns {object} parsed query
- */
-route.query = function() {
-  var q = {};
-  var href = loc.href || current;
-  href.replace(/[?&](.+?)=([^&]*)/g, function(_, k, v) { q[k] = v; });
-  return q
-};
-
-/** Stop routing **/
-route.stop = function () {
-  if (started) {
-    if (win) {
-      win[REMOVE_EVENT_LISTENER](POPSTATE, debouncedEmit);
-      win[REMOVE_EVENT_LISTENER](HASHCHANGE, debouncedEmit);
-      doc[REMOVE_EVENT_LISTENER](clickEvent, click);
-    }
-    central[TRIGGER]('stop');
-    started = false;
-  }
-};
-
-/**
- * Start routing
- * @param {boolean} autoExec - automatically exec after starting if true
- */
-route.start = function (autoExec) {
-  if (!started) {
-    if (win) {
-      if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        start(autoExec);
-      }
-      else {
-        document.onreadystatechange = function () {
-          if (document.readyState === 'interactive') {
-            // the timeout is needed to solve
-            // a weird safari bug https://github.com/riot/route/issues/33
-            setTimeout(function() { start(autoExec); }, 1);
-          }
-        };
-      }
-    }
-    started = true;
-  }
-};
-
-/** Prepare the router **/
-route.base();
-route.parser();
-
-/* harmony default export */ __webpack_exports__["default"] = (route);
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-;(function(window, undefined) {var observable = function(el) {
-
-  /**
-   * Extend the original object or create a new empty one
-   * @type { Object }
-   */
-
-  el = el || {}
-
-  /**
-   * Private variables
-   */
-  var callbacks = {},
-    slice = Array.prototype.slice
-
-  /**
-   * Public Api
-   */
-
-  // extend the el object adding the observable methods
-  Object.defineProperties(el, {
-    /**
-     * Listen to the given `event` ands
-     * execute the `callback` each time an event is triggered.
-     * @param  { String } event - event id
-     * @param  { Function } fn - callback function
-     * @returns { Object } el
-     */
-    on: {
-      value: function(event, fn) {
-        if (typeof fn == 'function')
-          (callbacks[event] = callbacks[event] || []).push(fn)
-        return el
-      },
-      enumerable: false,
-      writable: false,
-      configurable: false
-    },
-
-    /**
-     * Removes the given `event` listeners
-     * @param   { String } event - event id
-     * @param   { Function } fn - callback function
-     * @returns { Object } el
-     */
-    off: {
-      value: function(event, fn) {
-        if (event == '*' && !fn) callbacks = {}
-        else {
-          if (fn) {
-            var arr = callbacks[event]
-            for (var i = 0, cb; cb = arr && arr[i]; ++i) {
-              if (cb == fn) arr.splice(i--, 1)
-            }
-          } else delete callbacks[event]
-        }
-        return el
-      },
-      enumerable: false,
-      writable: false,
-      configurable: false
-    },
-
-    /**
-     * Listen to the given `event` and
-     * execute the `callback` at most once
-     * @param   { String } event - event id
-     * @param   { Function } fn - callback function
-     * @returns { Object } el
-     */
-    one: {
-      value: function(event, fn) {
-        function on() {
-          el.off(event, on)
-          fn.apply(el, arguments)
-        }
-        return el.on(event, on)
-      },
-      enumerable: false,
-      writable: false,
-      configurable: false
-    },
-
-    /**
-     * Execute all callback functions that listen to
-     * the given `event`
-     * @param   { String } event - event id
-     * @returns { Object } el
-     */
-    trigger: {
-      value: function(event) {
-
-        // getting the arguments
-        var arglen = arguments.length - 1,
-          args = new Array(arglen),
-          fns,
-          fn,
-          i
-
-        for (i = 0; i < arglen; i++) {
-          args[i] = arguments[i + 1] // skip first argument
-        }
-
-        fns = slice.call(callbacks[event] || [], 0)
-
-        for (i = 0; fn = fns[i]; ++i) {
-          fn.apply(el, args)
-        }
-
-        if (callbacks['*'] && event != '*')
-          el.trigger.apply(el, ['*', event].concat(args))
-
-        return el
-      },
-      enumerable: false,
-      writable: false,
-      configurable: false
-    }
-  })
-
-  return el
-
-}
-  /* istanbul ignore next */
-  // support CommonJS, AMD & browser
-  if (true)
-    module.exports = observable
-  else if (typeof define === 'function' && define.amd)
-    define(function() { return observable })
-  else
-    window.observable = observable
-
-})(typeof window != 'undefined' ? window : undefined);
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-    var riot = __webpack_require__(0)
-    __webpack_require__(9)
-__webpack_require__(13)
-__webpack_require__(26)
-riot.tag2('app', '<router> <route path="/"> <div class="container-fluid pt-5"> <div class="row"> <div class="col-sm-4 overflow-auto" data-is="search-result-list"> </div> <div class="col-sm-8" data-is="map-cmp" searched="false"> One of three columns </div> </div> </div> </route> <route path="/search.."> <div class="container-fluid pt-5"> <div class="row"> <div class="col-sm-4 overflow-auto" data-is="search-result-list" searched="true"> </div> <div class="col-sm-8" data-is="map-cmp" searched="true"> One of three columns </div> </div> </div> </route> <route path="/detail/*"> <restaurant-detail></restaurant-detail> </route> </router>', '', '', function(opts) {
-});
-    
-  
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function($) {
-    var riot = __webpack_require__(0)
-    __webpack_require__(11)
-riot.tag2('search-result-list', '<ul class="list-unstyled" ref="scrollItems"> <virtual each="{item, i in items}"> <li class="media border p-2 item--{i} search-result-item" data-is="search-result-compact-card" data="{item}"></li> </virtual> </ul>', '', '', function(opts) {
-        var self = this;
-        self.items = []
-        self.addScroll = function () {
-            let sum = 0;
-            let mt5 = false
-            if (self.refs.scrollItems.children.length > 5) {
-                $(self.refs.scrollItems.children).each(function (index) {
-                    if (index <= 5) {
-                        sum += $(this).height();
-                    }
-                });
-                $(self.refs.scrollItems).css({
-                    "overflow-y": "scroll",
-                    "max-height": sum + 'px'
-                })
-            } else {
-                $(self.refs.scrollItems).removeClass({
-                    "overflow-y": "scroll",
-                    "max-height": sum + 'px'
-                })
-            }
-
-        }
-
-        self.on('route', function () {
-            debugger
-            if (self.opts.searched) {
-                var data = self.route.query()
-                self.getSharedObservable().trigger('location-updated', data);
-            }
-        })
-        self.getSharedObservable().on('location-updated', function (data) {
-            let lat = data.lat;
-            let lng = data.lng;
-            var settings = {
-                "url": "http://localhost:8080/https://api.yelp.com/v3/businesses/search?latitude=" + lat +
-                    "&longitude=" + lng,
-                "method": "GET",
-                "headers": {}
-            }
-
-            $.ajax(settings).done(function (response) {
-                console.log(response);
-                var data = response['businesses'];
-                self.items = data;
-                self.update();
-            });
-        })
-        self.on('mount', function (params) {
-            self.items = new Array(5);
-            self.update()
-        })
-        self.on('updated', function (params) {
-            self.addScroll()
-        })
-});
-    
-  
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
-
-/***/ }),
-/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -14484,6 +13761,729 @@ return jQuery;
 
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(3)
+// require("../../node_modules/bootstrap/dist/js/bootstrap")
+__webpack_require__(4)
+// require('jquery')
+const riot = __webpack_require__(5)
+__webpack_require__(9)
+riot.mount('app')
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var riot = __webpack_require__(0);
+var route = __webpack_require__(6);
+var sharedObservable = riot.observable();
+route.parser(null, function (path, filter) {
+    var f = filter
+      .replace(/\?/g, '\\?')
+      .replace(/\*/g, '([^/?#]+?)')
+      .replace(/\.\./, '.*');
+  
+    var re = new RegExp(("^" + f + "$"));
+    var args = path.match(re);
+  
+    if (args) {
+      var value = args.slice(1)
+      if (value.length) return value
+      else {
+        var uri = args[0].split('?')
+        return uri[0].split('/')
+      }
+    }
+  })
+  
+
+// route.parser(null, function (path, filter) {
+//     var f = filter
+//         .replace(/\?/g, '\\?')
+//         .replace(/\*/g, '([^/?#]+?)')
+//         .replace(/\.\./, '.*');
+
+//     var re = new RegExp(("^" + f + "$"));
+//     var args = path.match(re);
+
+//     if (args) {
+//         var value = args.slice(1)
+//         if (value.length) return value
+//         else {
+//             var uri = args[0].split('?')
+//             return uri[0].split('/')
+//         }
+//     }
+// })
+var registerMountedComponentsMixin = {
+    init: function () {
+        // this.globalObj = globalObj;
+        this.route = route;
+        this.on('route', function (currentNode) {
+            var self = this;
+            this.route = route;
+            var query = self.route.query()
+        })
+    },
+    getSharedObservable: function (params) {
+        return sharedObservable;
+    }
+
+
+}
+riot.mixin(registerMountedComponentsMixin);
+
+module.exports = riot;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var riot = _interopDefault(__webpack_require__(0));
+var route = _interopDefault(__webpack_require__(7));
+
+riot.tag2('router', '<yield></yield>', '', '', function(opts) {
+    var this$1 = this;
+
+
+    this.route = route.create();
+    this.select = function (target) {
+      [].concat(this$1.tags.route)
+        .forEach(function (r) { return r.show = (r === target); });
+    };
+
+    this.on('mount', function () {
+
+      window.setTimeout(function () { return route.start(true); }, 0);
+    });
+
+    this.on('unmount', function () {
+      this$1.route.stop();
+    });
+});
+
+riot.tag2('route', '<virtual if="{show}"><yield></yield></virtual>', '', '', function(opts) {
+    var this$1 = this;
+
+    this.show = false;
+    this.parent.route(opts.path, function () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+
+      this$1.one('updated', function () {
+        flatten(this$1.tags).forEach(function (tag) {
+          tag.trigger.apply(tag, [ 'route' ].concat( args ));
+          tag.update();
+        });
+      });
+      this$1.parent.select(this$1);
+      this$1.parent.update();
+    });
+
+    function flatten(tags) {
+      return Object.keys(tags)
+        .map(function (key) { return tags[key]; })
+        .reduce(function (acc, tag) { return acc.concat(tag); }, [])
+    }
+});
+
+module.exports = route;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_riot_observable__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_riot_observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_riot_observable__);
+
+
+var RE_ORIGIN = /^.+?\/\/+[^/]+/,
+  EVENT_LISTENER = 'EventListener',
+  REMOVE_EVENT_LISTENER = 'remove' + EVENT_LISTENER,
+  ADD_EVENT_LISTENER = 'add' + EVENT_LISTENER,
+  HAS_ATTRIBUTE = 'hasAttribute',
+  POPSTATE = 'popstate',
+  HASHCHANGE = 'hashchange',
+  TRIGGER = 'trigger',
+  MAX_EMIT_STACK_LEVEL = 3,
+  win = typeof window != 'undefined' && window,
+  doc = typeof document != 'undefined' && document,
+  hist = win && history,
+  loc = win && (hist.location || win.location), // see html5-history-api
+  prot = Router.prototype, // to minify more
+  clickEvent = doc && doc.ontouchstart ? 'touchstart' : 'click',
+  central = __WEBPACK_IMPORTED_MODULE_0_riot_observable___default()();;;;;;;;;;;;;;;;
+
+var
+  started = false,
+  routeFound = false,
+  debouncedEmit,
+  base,
+  current,
+  parser,
+  secondParser,
+  emitStack = [],
+  emitStackLevel = 0;;;;;;;;;
+
+/**
+ * Default parser. You can replace it via router.parser method.
+ * @param {string} path - current path (normalized)
+ * @returns {array} array
+ */
+function DEFAULT_PARSER(path) {
+  return path.split(/[/?#]/)
+}
+
+/**
+ * Default parser (second). You can replace it via router.parser method.
+ * @param {string} path - current path (normalized)
+ * @param {string} filter - filter string (normalized)
+ * @returns {array} array
+ */
+function DEFAULT_SECOND_PARSER(path, filter) {
+  var f = filter
+    .replace(/\?/g, '\\?')
+    .replace(/\*/g, '([^/?#]+?)')
+    .replace(/\.\./, '.*');
+  var re = new RegExp(("^" + f + "$"));
+  var args = path.match(re);
+
+  if (args) { return args.slice(1) }
+}
+
+/**
+ * Simple/cheap debounce implementation
+ * @param   {function} fn - callback
+ * @param   {number} delay - delay in seconds
+ * @returns {function} debounced function
+ */
+function debounce(fn, delay) {
+  var t;
+  return function () {
+    clearTimeout(t);
+    t = setTimeout(fn, delay);
+  }
+}
+
+/**
+ * Set the window listeners to trigger the routes
+ * @param {boolean} autoExec - see route.start
+ */
+function start(autoExec) {
+  debouncedEmit = debounce(emit, 1);
+  win[ADD_EVENT_LISTENER](POPSTATE, debouncedEmit);
+  win[ADD_EVENT_LISTENER](HASHCHANGE, debouncedEmit);
+  doc[ADD_EVENT_LISTENER](clickEvent, click);
+  if (autoExec) { emit(true); }
+}
+
+/**
+ * Router class
+ */
+function Router() {
+  this.$ = [];
+  __WEBPACK_IMPORTED_MODULE_0_riot_observable___default()(this); // make it observable
+  central.on('stop', this.s.bind(this));
+  central.on('emit', this.e.bind(this));
+}
+
+function normalize(path) {
+  return path.replace(/^\/|\/$/, '')
+}
+
+function isString(str) {
+  return typeof str == 'string'
+}
+
+/**
+ * Get the part after domain name
+ * @param {string} href - fullpath
+ * @returns {string} path from root
+ */
+function getPathFromRoot(href) {
+  return (href || loc.href).replace(RE_ORIGIN, '')
+}
+
+/**
+ * Get the part after base
+ * @param {string} href - fullpath
+ * @returns {string} path from base
+ */
+function getPathFromBase(href) {
+  return base[0] === '#'
+    ? (href || loc.href || '').split(base)[1] || ''
+    : (loc ? getPathFromRoot(href) : href || '').replace(base, '')
+}
+
+function emit(force) {
+  // the stack is needed for redirections
+  var isRoot = emitStackLevel === 0;
+  if (MAX_EMIT_STACK_LEVEL <= emitStackLevel) { return }
+
+  emitStackLevel++;
+  emitStack.push(function() {
+    var path = getPathFromBase();
+    if (force || path !== current) {
+      central[TRIGGER]('emit', path);
+      current = path;
+    }
+  });
+  if (isRoot) {
+    var first;
+    while (first = emitStack.shift()) { first(); } // stack increses within this call
+    emitStackLevel = 0;
+  }
+}
+
+function click(e) {
+  if (
+    e.which !== 1 // not left click
+    || e.metaKey || e.ctrlKey || e.shiftKey // or meta keys
+    || e.defaultPrevented // or default prevented
+  ) { return }
+
+  var el = e.target;
+  while (el && el.nodeName !== 'A') { el = el.parentNode; }
+
+  if (
+    !el || el.nodeName !== 'A' // not A tag
+    || el[HAS_ATTRIBUTE]('download') // has download attr
+    || !el[HAS_ATTRIBUTE]('href') // has no href attr
+    || el.target && el.target !== '_self' // another window or frame
+    || el.href.indexOf(loc.href.match(RE_ORIGIN)[0]) === -1 // cross origin
+  ) { return }
+
+  if (el.href !== loc.href
+    && (
+      el.href.split('#')[0] === loc.href.split('#')[0] // internal jump
+      || base[0] !== '#' && getPathFromRoot(el.href).indexOf(base) !== 0 // outside of base
+      || base[0] === '#' && el.href.split(base)[0] !== loc.href.split(base)[0] // outside of #base
+      || !go(getPathFromBase(el.href), el.title || doc.title) // route not found
+    )) { return }
+
+  e.preventDefault();
+}
+
+/**
+ * Go to the path
+ * @param {string} path - destination path
+ * @param {string} title - page title
+ * @param {boolean} shouldReplace - use replaceState or pushState
+ * @returns {boolean} - route not found flag
+ */
+function go(path, title, shouldReplace) {
+  // Server-side usage: directly execute handlers for the path
+  if (!hist) { return central[TRIGGER]('emit', getPathFromBase(path)) }
+
+  path = base + normalize(path);
+  title = title || doc.title;
+  // browsers ignores the second parameter `title`
+  shouldReplace
+    ? hist.replaceState(null, title, path)
+    : hist.pushState(null, title, path);
+  // so we need to set it manually
+  doc.title = title;
+  routeFound = false;
+  emit();
+  return routeFound
+}
+
+/**
+ * Go to path or set action
+ * a single string:                go there
+ * two strings:                    go there with setting a title
+ * two strings and boolean:        replace history with setting a title
+ * a single function:              set an action on the default route
+ * a string/RegExp and a function: set an action on the route
+ * @param {(string|function)} first - path / action / filter
+ * @param {(string|RegExp|function)} second - title / action
+ * @param {boolean} third - replace flag
+ */
+prot.m = function(first, second, third) {
+  if (isString(first) && (!second || isString(second))) { go(first, second, third || false); }
+  else if (second) { this.r(first, second); }
+  else { this.r('@', first); }
+};
+
+/**
+ * Stop routing
+ */
+prot.s = function() {
+  this.off('*');
+  this.$ = [];
+};
+
+/**
+ * Emit
+ * @param {string} path - path
+ */
+prot.e = function(path) {
+  this.$.concat('@').some(function(filter) {
+    var args = (filter === '@' ? parser : secondParser)(normalize(path), normalize(filter));
+    if (typeof args != 'undefined') {
+      this[TRIGGER].apply(null, [filter].concat(args));
+      return routeFound = true // exit from loop
+    }
+  }, this);
+};
+
+/**
+ * Register route
+ * @param {string} filter - filter for matching to url
+ * @param {function} action - action to register
+ */
+prot.r = function(filter, action) {
+  if (filter !== '@') {
+    filter = '/' + normalize(filter);
+    this.$.push(filter);
+  }
+  this.on(filter, action);
+};
+
+var mainRouter = new Router();
+var route = mainRouter.m.bind(mainRouter);
+
+/**
+ * Create a sub router
+ * @returns {function} the method of a new Router object
+ */
+route.create = function() {
+  var newSubRouter = new Router();
+  // assign sub-router's main method
+  var router = newSubRouter.m.bind(newSubRouter);
+  // stop only this sub-router
+  router.stop = newSubRouter.s.bind(newSubRouter);
+  return router
+};
+
+/**
+ * Set the base of url
+ * @param {(str|RegExp)} arg - a new base or '#' or '#!'
+ */
+route.base = function(arg) {
+  base = arg || '#';
+  current = getPathFromBase(); // recalculate current path
+};
+
+/** Exec routing right now **/
+route.exec = function() {
+  emit(true);
+};
+
+/**
+ * Replace the default router to yours
+ * @param {function} fn - your parser function
+ * @param {function} fn2 - your secondParser function
+ */
+route.parser = function(fn, fn2) {
+  if (!fn && !fn2) {
+    // reset parser for testing...
+    parser = DEFAULT_PARSER;
+    secondParser = DEFAULT_SECOND_PARSER;
+  }
+  if (fn) { parser = fn; }
+  if (fn2) { secondParser = fn2; }
+};
+
+/**
+ * Helper function to get url query as an object
+ * @returns {object} parsed query
+ */
+route.query = function() {
+  var q = {};
+  var href = loc.href || current;
+  href.replace(/[?&](.+?)=([^&]*)/g, function(_, k, v) { q[k] = v; });
+  return q
+};
+
+/** Stop routing **/
+route.stop = function () {
+  if (started) {
+    if (win) {
+      win[REMOVE_EVENT_LISTENER](POPSTATE, debouncedEmit);
+      win[REMOVE_EVENT_LISTENER](HASHCHANGE, debouncedEmit);
+      doc[REMOVE_EVENT_LISTENER](clickEvent, click);
+    }
+    central[TRIGGER]('stop');
+    started = false;
+  }
+};
+
+/**
+ * Start routing
+ * @param {boolean} autoExec - automatically exec after starting if true
+ */
+route.start = function (autoExec) {
+  if (!started) {
+    if (win) {
+      if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        start(autoExec);
+      }
+      else {
+        document.onreadystatechange = function () {
+          if (document.readyState === 'interactive') {
+            // the timeout is needed to solve
+            // a weird safari bug https://github.com/riot/route/issues/33
+            setTimeout(function() { start(autoExec); }, 1);
+          }
+        };
+      }
+    }
+    started = true;
+  }
+};
+
+/** Prepare the router **/
+route.base();
+route.parser();
+
+/* harmony default export */ __webpack_exports__["default"] = (route);
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+;(function(window, undefined) {var observable = function(el) {
+
+  /**
+   * Extend the original object or create a new empty one
+   * @type { Object }
+   */
+
+  el = el || {}
+
+  /**
+   * Private variables
+   */
+  var callbacks = {},
+    slice = Array.prototype.slice
+
+  /**
+   * Public Api
+   */
+
+  // extend the el object adding the observable methods
+  Object.defineProperties(el, {
+    /**
+     * Listen to the given `event` ands
+     * execute the `callback` each time an event is triggered.
+     * @param  { String } event - event id
+     * @param  { Function } fn - callback function
+     * @returns { Object } el
+     */
+    on: {
+      value: function(event, fn) {
+        if (typeof fn == 'function')
+          (callbacks[event] = callbacks[event] || []).push(fn)
+        return el
+      },
+      enumerable: false,
+      writable: false,
+      configurable: false
+    },
+
+    /**
+     * Removes the given `event` listeners
+     * @param   { String } event - event id
+     * @param   { Function } fn - callback function
+     * @returns { Object } el
+     */
+    off: {
+      value: function(event, fn) {
+        if (event == '*' && !fn) callbacks = {}
+        else {
+          if (fn) {
+            var arr = callbacks[event]
+            for (var i = 0, cb; cb = arr && arr[i]; ++i) {
+              if (cb == fn) arr.splice(i--, 1)
+            }
+          } else delete callbacks[event]
+        }
+        return el
+      },
+      enumerable: false,
+      writable: false,
+      configurable: false
+    },
+
+    /**
+     * Listen to the given `event` and
+     * execute the `callback` at most once
+     * @param   { String } event - event id
+     * @param   { Function } fn - callback function
+     * @returns { Object } el
+     */
+    one: {
+      value: function(event, fn) {
+        function on() {
+          el.off(event, on)
+          fn.apply(el, arguments)
+        }
+        return el.on(event, on)
+      },
+      enumerable: false,
+      writable: false,
+      configurable: false
+    },
+
+    /**
+     * Execute all callback functions that listen to
+     * the given `event`
+     * @param   { String } event - event id
+     * @returns { Object } el
+     */
+    trigger: {
+      value: function(event) {
+
+        // getting the arguments
+        var arglen = arguments.length - 1,
+          args = new Array(arglen),
+          fns,
+          fn,
+          i
+
+        for (i = 0; i < arglen; i++) {
+          args[i] = arguments[i + 1] // skip first argument
+        }
+
+        fns = slice.call(callbacks[event] || [], 0)
+
+        for (i = 0; fn = fns[i]; ++i) {
+          fn.apply(el, args)
+        }
+
+        if (callbacks['*'] && event != '*')
+          el.trigger.apply(el, ['*', event].concat(args))
+
+        return el
+      },
+      enumerable: false,
+      writable: false,
+      configurable: false
+    }
+  })
+
+  return el
+
+}
+  /* istanbul ignore next */
+  // support CommonJS, AMD & browser
+  if (true)
+    module.exports = observable
+  else if (typeof define === 'function' && define.amd)
+    define(function() { return observable })
+  else
+    window.observable = observable
+
+})(typeof window != 'undefined' ? window : undefined);
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+    var riot = __webpack_require__(0)
+    __webpack_require__(10)
+__webpack_require__(13)
+__webpack_require__(14)
+riot.tag2('app', '<router> <route path="/"> <div class="container-fluid pt-5"> <div class="row"> <div class="col-sm-4 overflow-auto" data-is="search-result-list"> </div> <div class="col-sm-8" data-is="map-cmp" searched="false"> One of three columns </div> </div> </div> </route> <route path="/search.."> <div class="container-fluid pt-5"> <div class="row"> <div class="col-sm-4 overflow-auto" data-is="search-result-list" searched="true"> </div> <div class="col-sm-8" data-is="map-cmp" searched="true"> One of three columns </div> </div> </div> </route> <route path="/detail/*"> <restaurant-detail></restaurant-detail> </route> </router>', '', '', function(opts) {
+});
+    
+  
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {
+    var riot = __webpack_require__(0)
+    __webpack_require__(11)
+riot.tag2('search-result-list', '<ul class="list-unstyled" ref="scrollItems"> <virtual each="{item, i in items}"> <li class="media border p-2 item--{i} search-result-item" data-is="search-result-compact-card" data="{item}"></li> </virtual> </ul>', '', '', function(opts) {
+        var self = this;
+        self.items = []
+        self.addScroll = function () {
+            let sum = 0;
+            let mt5 = false
+            if (self.refs.scrollItems.children.length > 5) {
+                $(self.refs.scrollItems.children).each(function (index) {
+                    if (index <= 5) {
+                        sum += $(this).height();
+                    }
+                });
+                $(self.refs.scrollItems).css({
+                    "overflow-y": "scroll",
+                    "max-height": sum + 'px'
+                })
+            } else {
+                $(self.refs.scrollItems).removeClass({
+                    "overflow-y": "scroll",
+                    "max-height": sum + 'px'
+                })
+            }
+
+        }
+
+        self.on('route', function () {
+            if (self.opts.searched) {
+                var data = self.route.query()
+                self.getSharedObservable().trigger('location-updated', data);
+            }
+        })
+        self.getSharedObservable().on('location-updated', function (data) {
+            let lat = data.lat;
+            let lng = data.lng;
+            var settings = {
+                "url": "http://localhost:8080/https://api.yelp.com/v3/businesses/search?latitude=" + lat +
+                    "&longitude=" + lng,
+                "method": "GET",
+                "headers": {}
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                var data = response['businesses'];
+                self.items = data;
+                self.update();
+                self.getSharedObservable().trigger('update-pins', data);
+            });
+        })
+        self.on('mount', function (params) {
+            self.items = new Array(5);
+            self.update()
+        })
+        self.on('updated', function (params) {
+            self.addScroll()
+        })
+});
+    
+  
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14553,20 +14553,45 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
     var riot = __webpack_require__(0)
     riot.tag2('map-cmp', '<input id="pac-input" class="controls" type="text" placeholder="Search Box"> <div id="map"></div>', 'map-cmp #map,[data-is="map-cmp"] #map{ height: 100%; } map-cmp html,[data-is="map-cmp"] html,map-cmp body,[data-is="map-cmp"] body{ height: 100%; margin: 0; padding: 0; } map-cmp #description,[data-is="map-cmp"] #description{ font-family: Roboto; font-size: 15px; font-weight: 300; } map-cmp #infowindow-content .title,[data-is="map-cmp"] #infowindow-content .title{ font-weight: bold; } map-cmp #infowindow-content,[data-is="map-cmp"] #infowindow-content{ display: none; } map-cmp #map #infowindow-content,[data-is="map-cmp"] #map #infowindow-content{ display: inline; } map-cmp .pac-card,[data-is="map-cmp"] .pac-card{ margin: 10px 10px 0 0; border-radius: 2px 0 0 2px; box-sizing: border-box; -moz-box-sizing: border-box; outline: none; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); background-color: #fff; font-family: Roboto; } map-cmp #pac-container,[data-is="map-cmp"] #pac-container{ padding-bottom: 12px; margin-right: 12px; } map-cmp .pac-controls,[data-is="map-cmp"] .pac-controls{ display: inline-block; padding: 5px 11px; } map-cmp .pac-controls label,[data-is="map-cmp"] .pac-controls label{ font-family: Roboto; font-size: 13px; font-weight: 300; } map-cmp #pac-input,[data-is="map-cmp"] #pac-input{ background-color: #fff; font-family: Roboto; font-size: 15px; font-weight: 300; margin-left: 12px; padding: 0 11px 0 13px; text-overflow: ellipsis; width: 400px; } map-cmp #pac-input:focus,[data-is="map-cmp"] #pac-input:focus{ border-color: #4d90fe; } map-cmp #title,[data-is="map-cmp"] #title{ color: #fff; background-color: #4d90fe; font-size: 25px; font-weight: 500; padding: 6px 12px; } map-cmp #target,[data-is="map-cmp"] #target{ width: 345px; }', '', function(opts) {
         var self = this;
+        self.businesses = [];
+        self.getSharedObservable().on('update-pins', function (businesses) {
+            self.businesses = businesses
 
-        self.on('route',function (params) {
-            self.data = {}
-            self.data.lat_lng = self.route.query()
-            debugger
-            console.log(self)
-        })
-        $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places", function( data, textStatus, jqxhr ) {
+            if(typeof google != 'undefined')  {
+                self.businesses.forEach(element => {
+                        debugger
+                        var coordinates = element['coordinates']
+                        var uluru = {
+                            lat: coordinates['latitude'],
+                            lng: coordinates['longitude']
+                        };
+                        debugger
+                        new google.maps.Marker({
+                            position: uluru,
+                            map: self.map
+                        });
+                    });
 
-        self.initAutocomplete()
+                    self.businesses = [];
+            }
+
         });
 
-        self.initAutocomplete = function() {
+        self.on('route', function (params) {
+            self.data = {}
+            self.data.lat_lng = self.route.query()
 
+            console.log(self)
+
+        })
+        $.getScript(
+            "https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places",
+            function (data, textStatus, jqxhr) {
+
+                self.initAutocomplete()
+            });
+
+        self.initAutocomplete = function () {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
                     lat: Number(self.data.lat_lng.lat),
@@ -14575,6 +14600,7 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
                 zoom: 13,
                 mapTypeId: 'roadmap'
             });
+            self.map = map;
 
             var input = document.getElementById('pac-input');
             var searchBox = new google.maps.places.SearchBox(input);
@@ -14587,18 +14613,39 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
             var markers = [];
 
             searchBox.addListener('places_changed', function () {
+
+                self.getSharedObservable().on('update-pins', function (businesses) {
+                    self.businesses = businesses
+
+                    self.businesses.forEach(element => {
+                        debugger
+                        var coordinates = element['coordinates']
+                        var uluru = {
+                            lat: coordinates['latitude'],
+                            lng: coordinates['longitude']
+                        };
+                        debugger
+                        new google.maps.Marker({
+                            position: uluru,
+                            map: self.map
+                        });
+                    });
+
+                    self.businesses = [];
+
+                });
+
                 var places = searchBox.getPlaces();
 
                 if (places.length == 0) {
                     return;
-                }else{
+                } else {
                     let map_location = places[0];
                     let lat = map_location.geometry.location.lat()
                     let lng = map_location.geometry.location.lng()
                     let formatted_address = map_location.formatted_address
 
-                    debugger
-                    self.route("/search?lat="+lat+"&lng="+lng+"&formatted_address="+formatted_address)
+                    self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +formatted_address)
 
                 }
 
@@ -14637,26 +14684,42 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
                 });
                 map.fitBounds(bounds);
             });
+            self.businesses.forEach(element => {
+                debugger
+                var coordinates = element['coordinates']
+                var uluru = {
+                    lat: coordinates['latitude'],
+                    lng: coordinates['longitude']
+                };
+                debugger
+                new google.maps.Marker({
+                    position: uluru,
+                    map: self.map
+                });
+            });
+
+            self.businesses = [];
+
+            self.map.addListener('click', function (e) {
+                self.placeMarkerAndPanTo(e.latLng, map);
+            });
+
+        }
+        self.placeMarkerAndPanTo=function(lat_lng, map) {
+            debugger;
+            var lat = lat_lng.lat()
+            var lng = lat_lng.lng()
+            var formatted_address = null
+            self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +formatted_address)
+
         }
 });
     
   
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -14685,7 +14748,7 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
 });
     
   
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ })
 /******/ ]);

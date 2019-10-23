@@ -92,17 +92,46 @@
     <div id="map"></div>
     <script>
         var self = this;
+        self.businesses = [];
+        self.getSharedObservable().on('update-pins', function (businesses) {
+            self.businesses = businesses
+            // var businesses = data['businesses']  
+            if(typeof google != 'undefined')  {
+                self.businesses.forEach(element => {
+                        debugger
+                        var coordinates = element['coordinates']
+                        var uluru = {
+                            lat: coordinates['latitude'],
+                            lng: coordinates['longitude']
+                        };
+                        debugger
+                        new google.maps.Marker({
+                            position: uluru,
+                            map: self.map
+                        });
+                    });
 
-        self.on('route',function (params) {
+                    self.businesses = [];
+            }
+
+
+        });
+
+
+
+        self.on('route', function (params) {
             self.data = {}
             self.data.lat_lng = self.route.query()
-            debugger
+
             console.log(self)
+
         })
-        $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places", function( data, textStatus, jqxhr ) {
-        // this is your callback.
-        self.initAutocomplete()
-        });
+        $.getScript(
+            "https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places",
+            function (data, textStatus, jqxhr) {
+                // this is your callback.
+                self.initAutocomplete()
+            });
 
         // This example adds a search box to a map, using the Google Place Autocomplete
         // feature. People can enter geographical searches. The search box will return a
@@ -112,8 +141,7 @@
         // parameter when you first load the API. For example:
         // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-        self.initAutocomplete = function() {
-            
+        self.initAutocomplete = function () {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
                     lat: Number(self.data.lat_lng.lat),
@@ -122,7 +150,7 @@
                 zoom: 13,
                 mapTypeId: 'roadmap'
             });
-
+            self.map = map;
             // Create the search box and link it to the UI element.
             var input = document.getElementById('pac-input');
             var searchBox = new google.maps.places.SearchBox(input);
@@ -137,18 +165,40 @@
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
             searchBox.addListener('places_changed', function () {
+
+                self.getSharedObservable().on('update-pins', function (businesses) {
+                    self.businesses = businesses
+                    // var businesses = data['businesses']  
+                    self.businesses.forEach(element => {
+                        debugger
+                        var coordinates = element['coordinates']
+                        var uluru = {
+                            lat: coordinates['latitude'],
+                            lng: coordinates['longitude']
+                        };
+                        debugger
+                        new google.maps.Marker({
+                            position: uluru,
+                            map: self.map
+                        });
+                    });
+
+                    self.businesses = [];
+
+                });
+
                 var places = searchBox.getPlaces();
 
                 if (places.length == 0) {
                     return;
-                }else{
+                } else {
                     let map_location = places[0];
                     let lat = map_location.geometry.location.lat()
                     let lng = map_location.geometry.location.lng()
                     let formatted_address = map_location.formatted_address
                     // console.log(self)
-                    debugger
-                    self.route("/search?lat="+lat+"&lng="+lng+"&formatted_address="+formatted_address)
+
+                    self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +formatted_address)
 
                     // self.getSharedObservable().trigger('location-updated',{
                     //     lat:lat,
@@ -194,6 +244,35 @@
                 });
                 map.fitBounds(bounds);
             });
+            self.businesses.forEach(element => {
+                debugger
+                var coordinates = element['coordinates']
+                var uluru = {
+                    lat: coordinates['latitude'],
+                    lng: coordinates['longitude']
+                };
+                debugger
+                new google.maps.Marker({
+                    position: uluru,
+                    map: self.map
+                });
+            });
+
+            self.businesses = [];
+
+
+            self.map.addListener('click', function (e) {
+                self.placeMarkerAndPanTo(e.latLng, map);
+            });
+
+        }
+        self.placeMarkerAndPanTo=function(lat_lng, map) {
+            debugger;
+            var lat = lat_lng.lat()
+            var lng = lat_lng.lng()
+            var formatted_address = null
+            self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +formatted_address)
+
         }
     </script>
 

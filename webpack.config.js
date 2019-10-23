@@ -105,7 +105,7 @@ var config = {
             hash: true,
             chunks: ["app"],
             filename: path.resolve(__dirname, "./public/pages/app.html"),
-            title: "Authblue - Marketplace For Background Verification",
+            title: "Geo Code Yelp",
             template: path.resolve(__dirname, "./src/pages/app.page.html"),
             minify: {
                 collapseWhitespace: true
