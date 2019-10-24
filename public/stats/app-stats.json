@@ -4,8 +4,8 @@
   "warnings": [
   ],
   "version": "3.11.0",
-  "hash": "bab9be44bcac38be227c",
-  "time": 382,
+  "hash": "8cc26b4dce482eeb34f1",
+  "time": 298,
   "publicPath": "",
   "assetsByChunkName": {
     "app": [
@@ -16,14 +16,14 @@
   "assets": [
     {
       "name": "js/app.bundle.js",
-      "size": 406563,
+      "size": 405775,
       "chunks": [
         0
       ],
       "chunkNames": [
         "app"
       ],
-      "emitted": true,
+      "emitted": false,
       "isOverSizeLimit": true
     },
     {
@@ -63,11 +63,11 @@
   "chunks": [
     {
       "id": 0,
-      "rendered": true,
+      "rendered": false,
       "initial": true,
       "entry": true,
       "extraAsync": false,
-      "size": 402229,
+      "size": 401441,
       "names": [
         "app"
       ],
@@ -75,7 +75,7 @@
         "js/app.bundle.js",
         "css/app.bundle.css"
       ],
-      "hash": "f78d0b06a9cb5fbf3fb0",
+      "hash": "122093c9e9506a26c9cc",
       "parents": [
       ],
       "modules": [
@@ -357,7 +357,7 @@
           "name": "./src/common-config.js",
           "index": 3,
           "index2": 6,
-          "size": 1484,
+          "size": 1565,
           "cacheable": true,
           "built": false,
           "optional": false,
@@ -389,7 +389,7 @@
           "optimizationBailout": [
           ],
           "depth": 1,
-          "source": "var riot = require('riot');\nvar route = require('riot-route/tag');\nvar sharedObservable = riot.observable();\nroute.parser(null, function (path, filter) {\n    var f = filter\n      .replace(/\\?/g, '\\\\?')\n      .replace(/\\*/g, '([^/?#]+?)')\n      .replace(/\\.\\./, '.*');\n  \n    var re = new RegExp((\"^\" + f + \"$\"));\n    var args = path.match(re);\n  \n    if (args) {\n      var value = args.slice(1)\n      if (value.length) return value\n      else {\n        var uri = args[0].split('?')\n        return uri[0].split('/')\n      }\n    }\n  })\n  \n\n// route.parser(null, function (path, filter) {\n//     var f = filter\n//         .replace(/\\?/g, '\\\\?')\n//         .replace(/\\*/g, '([^/?#]+?)')\n//         .replace(/\\.\\./, '.*');\n\n//     var re = new RegExp((\"^\" + f + \"$\"));\n//     var args = path.match(re);\n\n//     if (args) {\n//         var value = args.slice(1)\n//         if (value.length) return value\n//         else {\n//             var uri = args[0].split('?')\n//             return uri[0].split('/')\n//         }\n//     }\n// })\nvar registerMountedComponentsMixin = {\n    init: function () {\n        // this.globalObj = globalObj;\n        this.route = route;\n        this.on('route', function (currentNode) {\n            var self = this;\n            this.route = route;\n            var query = self.route.query()\n        })\n    },\n    getSharedObservable: function (params) {\n        return sharedObservable;\n    }\n\n\n}\nriot.mixin(registerMountedComponentsMixin);\n\nmodule.exports = riot;"
+          "source": "var riot = require('riot');\nvar route = require('riot-route/tag');\nvar sharedObservable = riot.observable();\nroute.parser(null, function (path, filter) {\n  var f = filter\n    .replace(/\\?/g, '\\\\?')\n    .replace(/\\*/g, '([^/?#]+?)')\n    .replace(/\\.\\./, '.*');\n\n  var re = new RegExp((\"^\" + f + \"$\"));\n  var args = path.match(re);\n\n  if (args) {\n    var value = args.slice(1)\n    if (value.length) return value\n    else {\n      var uri = args[0].split('?')\n      return uri[0].split('/')\n    }\n  }\n})\n\n\n// route.parser(null, function (path, filter) {\n//     var f = filter\n//         .replace(/\\?/g, '\\\\?')\n//         .replace(/\\*/g, '([^/?#]+?)')\n//         .replace(/\\.\\./, '.*');\n\n//     var re = new RegExp((\"^\" + f + \"$\"));\n//     var args = path.match(re);\n\n//     if (args) {\n//         var value = args.slice(1)\n//         if (value.length) return value\n//         else {\n//             var uri = args[0].split('?')\n//             return uri[0].split('/')\n//         }\n//     }\n// })\nvar globalObj = {}\nvar registerMountedComponentsMixin = {\n  init: function () {\n    // this.globalObj = globalObj;\n    this.route = route;\n    this.on('route', function (currentNode) {\n      var self = this;\n      this.route = route;\n      var query = self.route.query()\n    })\n    this.setDataGlobal = function (k, v) {\n      globalObj[k] = v\n    }\n    this.getDataGlobal = function (k) {\n      return globalObj[k]\n    }\n  },\n  getSharedObservable: function (params) {\n    return sharedObservable;\n  }\n\n\n}\nriot.mixin(registerMountedComponentsMixin);\n\nmodule.exports = riot;"
         },
         {
           "id": 6,
@@ -561,7 +561,7 @@
           "name": "./src/cmp/search-result-list.cmp.tag",
           "index": 9,
           "index2": 10,
-          "size": 2279,
+          "size": 2289,
           "cacheable": true,
           "built": false,
           "optional": false,
@@ -593,7 +593,7 @@
           "optimizationBailout": [
           ],
           "depth": 2,
-          "source": "\n    var riot = require('riot')\n    require(\"./search-result-compact-card.cmp.tag\")\nriot.tag2('search-result-list', '<ul class=\"list-unstyled\" ref=\"scrollItems\"> <virtual each=\"{item, i in items}\"> <li class=\"media border p-2 item--{i} search-result-item\" data-is=\"search-result-compact-card\" data=\"{item}\"></li> </virtual> </ul>', '', '', function(opts) {\n        var self = this;\n        self.items = []\n        self.addScroll = function () {\n            let sum = 0;\n            let mt5 = false\n            if (self.refs.scrollItems.children.length > 5) {\n                $(self.refs.scrollItems.children).each(function (index) {\n                    if (index <= 5) {\n                        sum += $(this).height();\n                    }\n                });\n                $(self.refs.scrollItems).css({\n                    \"overflow-y\": \"scroll\",\n                    \"max-height\": sum + 'px'\n                })\n            } else {\n                $(self.refs.scrollItems).removeClass({\n                    \"overflow-y\": \"scroll\",\n                    \"max-height\": sum + 'px'\n                })\n            }\n\n        }\n\n        self.on('route', function () {\n            if (self.opts.searched) {\n                var data = self.route.query()\n                self.getSharedObservable().trigger('location-updated', data);\n            }\n        })\n        self.getSharedObservable().on('location-updated', function (data) {\n            let lat = data.lat;\n            let lng = data.lng;\n            var settings = {\n                \"url\": \"http://localhost:8080/https://api.yelp.com/v3/businesses/search?latitude=\" + lat +\n                    \"&longitude=\" + lng,\n                \"method\": \"GET\",\n                \"headers\": {}\n            }\n\n            $.ajax(settings).done(function (response) {\n                console.log(response);\n                var data = response['businesses'];\n                self.items = data;\n                self.update();\n                self.getSharedObservable().trigger('update-pins', data);\n            });\n        })\n        self.on('mount', function (params) {\n            self.items = new Array(5);\n            self.update()\n        })\n        self.on('updated', function (params) {\n            self.addScroll()\n        })\n});\n    \n  "
+          "source": "\n    var riot = require('riot')\n    require(\"./search-result-compact-card.cmp.tag\")\nriot.tag2('search-result-list', '<ul class=\"list-unstyled\" ref=\"scrollItems\"> <virtual each=\"{item, i in items}\"> <li class=\"media border p-2 item--{i} search-result-item\" data-is=\"search-result-compact-card\" data=\"{item}\"></li> </virtual> </ul>', '', '', function(opts) {\n        var self = this;\n        self.items = []\n        self.addScroll = function () {\n            let sum = 0;\n            let mt5 = false\n            if (self.refs.scrollItems.children.length > 5) {\n                $(self.refs.scrollItems.children).each(function (index) {\n                    if (index <= 5) {\n                        sum += $(this).height();\n                    }\n                });\n                $(self.refs.scrollItems).css({\n                    \"overflow-y\": \"scroll\",\n                    \"max-height\": sum + 'px'\n                })\n            } else {\n                $(self.refs.scrollItems).removeClass({\n                    \"overflow-y\": \"scroll\",\n                    \"max-height\": sum + 'px'\n                })\n            }\n\n        }\n\n        self.on('route', function () {\n            if (self.opts.searched) {\n                var data = self.route.query()\n                self.getSharedObservable().trigger('location-updated', data);\n            }\n        })\n        self.getSharedObservable().on('location-updated', function (data) {\n            let lat = data.lat;\n            let lng = data.lng;\n            var settings = {\n                \"url\": \"http://localhost:8080/https://api.yelp.com/v3/businesses/search?latitude=\" + lat +\n                    \"&longitude=\" + lng,\n                \"method\": \"GET\",\n                \"headers\": {}\n            }\n\n            $.ajax(settings).done(function (response) {\n                var data = response['businesses'];\n                self.items = data;\n                self.update();\n                self.setDataGlobal('businesses',data)\n                self.getSharedObservable().trigger('data-updated');\n            });\n        })\n        self.on('mount', function (params) {\n            self.items = new Array(5);\n            self.update()\n        })\n        self.on('updated', function (params) {\n            self.addScroll()\n        })\n});\n    \n  "
         },
         {
           "id": 11,
@@ -681,7 +681,7 @@
           "name": "./src/cmp/map-cmp.tag",
           "index": 13,
           "index2": 11,
-          "size": 7505,
+          "size": 6665,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -713,7 +713,7 @@
           "optimizationBailout": [
           ],
           "depth": 2,
-          "source": "\n    var riot = require('riot')\n    riot.tag2('map-cmp', '<input id=\"pac-input\" class=\"controls\" type=\"text\" placeholder=\"Search Box\"> <div id=\"map\"></div>', 'map-cmp #map,[data-is=\"map-cmp\"] #map{ height: 100%; } map-cmp html,[data-is=\"map-cmp\"] html,map-cmp body,[data-is=\"map-cmp\"] body{ height: 100%; margin: 0; padding: 0; } map-cmp #description,[data-is=\"map-cmp\"] #description{ font-family: Roboto; font-size: 15px; font-weight: 300; } map-cmp #infowindow-content .title,[data-is=\"map-cmp\"] #infowindow-content .title{ font-weight: bold; } map-cmp #infowindow-content,[data-is=\"map-cmp\"] #infowindow-content{ display: none; } map-cmp #map #infowindow-content,[data-is=\"map-cmp\"] #map #infowindow-content{ display: inline; } map-cmp .pac-card,[data-is=\"map-cmp\"] .pac-card{ margin: 10px 10px 0 0; border-radius: 2px 0 0 2px; box-sizing: border-box; -moz-box-sizing: border-box; outline: none; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); background-color: #fff; font-family: Roboto; } map-cmp #pac-container,[data-is=\"map-cmp\"] #pac-container{ padding-bottom: 12px; margin-right: 12px; } map-cmp .pac-controls,[data-is=\"map-cmp\"] .pac-controls{ display: inline-block; padding: 5px 11px; } map-cmp .pac-controls label,[data-is=\"map-cmp\"] .pac-controls label{ font-family: Roboto; font-size: 13px; font-weight: 300; } map-cmp #pac-input,[data-is=\"map-cmp\"] #pac-input{ background-color: #fff; font-family: Roboto; font-size: 15px; font-weight: 300; margin-left: 12px; padding: 0 11px 0 13px; text-overflow: ellipsis; width: 400px; } map-cmp #pac-input:focus,[data-is=\"map-cmp\"] #pac-input:focus{ border-color: #4d90fe; } map-cmp #title,[data-is=\"map-cmp\"] #title{ color: #fff; background-color: #4d90fe; font-size: 25px; font-weight: 500; padding: 6px 12px; } map-cmp #target,[data-is=\"map-cmp\"] #target{ width: 345px; }', '', function(opts) {\n        var self = this;\n        self.businesses = [];\n        self.getSharedObservable().on('update-pins', function (businesses) {\n            self.businesses = businesses\n\n            if(typeof google != 'undefined')  {\n                self.businesses.forEach(element => {\n                        debugger\n                        var coordinates = element['coordinates']\n                        var uluru = {\n                            lat: coordinates['latitude'],\n                            lng: coordinates['longitude']\n                        };\n                        debugger\n                        new google.maps.Marker({\n                            position: uluru,\n                            map: self.map\n                        });\n                    });\n\n                    self.businesses = [];\n            }\n\n        });\n\n        self.on('route', function (params) {\n            self.data = {}\n            self.data.lat_lng = self.route.query()\n\n            console.log(self)\n\n        })\n        $.getScript(\n            \"https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places\",\n            function (data, textStatus, jqxhr) {\n\n                self.initAutocomplete()\n            });\n\n        self.initAutocomplete = function () {\n            var map = new google.maps.Map(document.getElementById('map'), {\n                center: {\n                    lat: Number(self.data.lat_lng.lat),\n                    lng: Number(self.data.lat_lng.lng)\n                },\n                zoom: 13,\n                mapTypeId: 'roadmap'\n            });\n            self.map = map;\n\n            var input = document.getElementById('pac-input');\n            var searchBox = new google.maps.places.SearchBox(input);\n            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);\n\n            map.addListener('bounds_changed', function () {\n                searchBox.setBounds(map.getBounds());\n            });\n\n            var markers = [];\n\n            searchBox.addListener('places_changed', function () {\n\n                self.getSharedObservable().on('update-pins', function (businesses) {\n                    self.businesses = businesses\n\n                    self.businesses.forEach(element => {\n                        debugger\n                        var coordinates = element['coordinates']\n                        var uluru = {\n                            lat: coordinates['latitude'],\n                            lng: coordinates['longitude']\n                        };\n                        debugger\n                        new google.maps.Marker({\n                            position: uluru,\n                            map: self.map\n                        });\n                    });\n\n                    self.businesses = [];\n\n                });\n\n                var places = searchBox.getPlaces();\n\n                if (places.length == 0) {\n                    return;\n                } else {\n                    let map_location = places[0];\n                    let lat = map_location.geometry.location.lat()\n                    let lng = map_location.geometry.location.lng()\n                    let formatted_address = map_location.formatted_address\n\n                    self.route(\"/search?lat=\" + lat + \"&lng=\" + lng + \"&formatted_address=\" +formatted_address)\n\n                }\n\n                markers.forEach(function (marker) {\n                    marker.setMap(null);\n                });\n                markers = [];\n\n                var bounds = new google.maps.LatLngBounds();\n                places.forEach(function (place) {\n                    if (!place.geometry) {\n                        console.log(\"Returned place contains no geometry\");\n                        return;\n                    }\n                    var icon = {\n                        url: place.icon,\n                        size: new google.maps.Size(71, 71),\n                        origin: new google.maps.Point(0, 0),\n                        anchor: new google.maps.Point(17, 34),\n                        scaledSize: new google.maps.Size(25, 25)\n                    };\n\n                    markers.push(new google.maps.Marker({\n                        map: map,\n                        icon: icon,\n                        title: place.name,\n                        position: place.geometry.location\n                    }));\n\n                    if (place.geometry.viewport) {\n\n                        bounds.union(place.geometry.viewport);\n                    } else {\n                        bounds.extend(place.geometry.location);\n                    }\n                });\n                map.fitBounds(bounds);\n            });\n            self.businesses.forEach(element => {\n                debugger\n                var coordinates = element['coordinates']\n                var uluru = {\n                    lat: coordinates['latitude'],\n                    lng: coordinates['longitude']\n                };\n                debugger\n                new google.maps.Marker({\n                    position: uluru,\n                    map: self.map\n                });\n            });\n\n            self.businesses = [];\n\n            self.map.addListener('click', function (e) {\n                self.placeMarkerAndPanTo(e.latLng, map);\n            });\n\n        }\n        self.placeMarkerAndPanTo=function(lat_lng, map) {\n            debugger;\n            var lat = lat_lng.lat()\n            var lng = lat_lng.lng()\n            var formatted_address = null\n            self.route(\"/search?lat=\" + lat + \"&lng=\" + lng + \"&formatted_address=\" +formatted_address)\n\n        }\n});\n    \n  "
+          "source": "\n    var riot = require('riot')\n    riot.tag2('map-cmp', '<input id=\"pac-input\" class=\"controls\" type=\"text\" placeholder=\"Search Box\"> <div id=\"map\"></div>', 'map-cmp #map,[data-is=\"map-cmp\"] #map{ height: 100%; } map-cmp html,[data-is=\"map-cmp\"] html,map-cmp body,[data-is=\"map-cmp\"] body{ height: 100%; margin: 0; padding: 0; } map-cmp #description,[data-is=\"map-cmp\"] #description{ font-family: Roboto; font-size: 15px; font-weight: 300; } map-cmp #infowindow-content .title,[data-is=\"map-cmp\"] #infowindow-content .title{ font-weight: bold; } map-cmp #infowindow-content,[data-is=\"map-cmp\"] #infowindow-content{ display: none; } map-cmp #map #infowindow-content,[data-is=\"map-cmp\"] #map #infowindow-content{ display: inline; } map-cmp .pac-card,[data-is=\"map-cmp\"] .pac-card{ margin: 10px 10px 0 0; border-radius: 2px 0 0 2px; box-sizing: border-box; -moz-box-sizing: border-box; outline: none; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); background-color: #fff; font-family: Roboto; } map-cmp #pac-container,[data-is=\"map-cmp\"] #pac-container{ padding-bottom: 12px; margin-right: 12px; } map-cmp .pac-controls,[data-is=\"map-cmp\"] .pac-controls{ display: inline-block; padding: 5px 11px; } map-cmp .pac-controls label,[data-is=\"map-cmp\"] .pac-controls label{ font-family: Roboto; font-size: 13px; font-weight: 300; } map-cmp #pac-input,[data-is=\"map-cmp\"] #pac-input{ background-color: #fff; font-family: Roboto; font-size: 15px; font-weight: 300; margin-left: 12px; padding: 0 11px 0 13px; text-overflow: ellipsis; width: 400px; } map-cmp #pac-input:focus,[data-is=\"map-cmp\"] #pac-input:focus{ border-color: #4d90fe; } map-cmp #title,[data-is=\"map-cmp\"] #title{ color: #fff; background-color: #4d90fe; font-size: 25px; font-weight: 500; padding: 6px 12px; } map-cmp #target,[data-is=\"map-cmp\"] #target{ width: 345px; }', '', function(opts) {\n        var self = this;\n        self.getSharedObservable().on('data-updated', function (params) {\n            self.drawNewMarkers()\n        });\n        self.on('route', function (params) {\n            self.data = {}\n            self.data.lat_lng = self.route.query()\n            if (Object.keys(self.data).length) {\n                self.data.lat_lng = {\n                    lat: 37.61496,\n                    lng: -122.39005380000003\n                }\n                self.setDataGlobal('businesses', [])\n            }\n            self.drawNewMarkers();\n        })\n\n        self.on('mount', function (params) {\n            $.getScript(\n                \"https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places\",\n                function (data, textStatus, jqxhr) {\n\n                    self.initAutocomplete()\n\n                });\n\n        })\n\n        self.initAutocomplete = function () {\n            var map = new google.maps.Map(document.getElementById('map'), {\n                center: {\n                    lat: Number(self.data.lat_lng.lat),\n                    lng: Number(self.data.lat_lng.lng)\n                },\n                zoom: 13,\n                mapTypeId: 'roadmap'\n            });\n            self.map = map;\n\n            var input = document.getElementById('pac-input');\n            var searchBox = new google.maps.places.SearchBox(input);\n            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);\n\n            map.addListener('bounds_changed', function () {\n                searchBox.setBounds(map.getBounds());\n            });\n\n            var markers = [];\n\n            searchBox.addListener('places_changed', function () {\n                var places = searchBox.getPlaces();\n                if (places.length == 0) {\n                    return;\n                } else {\n                    let map_location = places[0];\n                    let lat = map_location.geometry.location.lat()\n                    let lng = map_location.geometry.location.lng()\n                    let formatted_address = map_location.formatted_address\n\n                    self.route(\"/search?lat=\" + lat + \"&lng=\" + lng + \"&formatted_address=\" +\n                        formatted_address)\n\n                }\n\n                markers.forEach(function (marker) {\n                    marker.setMap(null);\n                });\n                markers = [];\n\n                var bounds = new google.maps.LatLngBounds();\n                places.forEach(function (place) {\n                    if (!place.geometry) {\n                        console.log(\"Returned place contains no geometry\");\n                        return;\n                    }\n                    var icon = {\n                        url: place.icon,\n                        size: new google.maps.Size(71, 71),\n                        origin: new google.maps.Point(0, 0),\n                        anchor: new google.maps.Point(17, 34),\n                        scaledSize: new google.maps.Size(25, 25)\n                    };\n\n                    markers.push(new google.maps.Marker({\n                        map: map,\n                        icon: icon,\n                        title: place.name,\n                        position: place.geometry.location\n                    }));\n\n                    if (place.geometry.viewport) {\n\n                        bounds.union(place.geometry.viewport);\n                    } else {\n                        bounds.extend(place.geometry.location);\n                    }\n                });\n                map.fitBounds(bounds);\n            });\n\n            self.drawNewMarkers();\n            self.map.addListener('click', function (e) {\n                self.placeMarkerAndPanTo(e.latLng, map);\n            });\n\n        }\n        self.placeMarkerAndPanTo = function (lat_lng, map) {\n            var lat = lat_lng.lat()\n            var lng = lat_lng.lng()\n            var formatted_address = null\n            self.route(\"/search?lat=\" + lat + \"&lng=\" + lng + \"&formatted_address=\" + formatted_address)\n\n        }\n        self.drawNewMarkers = function () {\n            if ((typeof google == 'undefined') || !self.isMounted) {\n                return\n            }\n            setTimeout(() => {\n                self.getDataGlobal('businesses').forEach(element => {\n                    var coordinates = element['coordinates']\n                    var uluru = {\n                        lat: coordinates['latitude'],\n                        lng: coordinates['longitude']\n                    };\n\n                    new google.maps.Marker({\n                        position: uluru,\n                        map: self.map\n                    });\n                });\n                self.setDataGlobal('businesses', [])\n\n            }, 100);\n\n        }\n});\n    \n  "
         },
         {
           "id": 14,
@@ -721,7 +721,7 @@
           "name": "./src/cmp/restaurant-detail.cmp.tag",
           "index": 14,
           "index2": 12,
-          "size": 1625,
+          "size": 1586,
           "cacheable": true,
           "built": false,
           "optional": false,
@@ -753,7 +753,7 @@
           "optimizationBailout": [
           ],
           "depth": 2,
-          "source": "\n    var riot = require('riot')\n    riot.tag2('restaurant-detail', '<div class=\"container m-5\"> <div class=\"jumbotron jumbotron-fluid jumbotronImg\" riot-style=\"{bgImg()}\"> <div class=\"container\"> <h1 class=\"display-4\">{data.name}</h1> <p class=\"lead\">{data.alias}. </p> </div> </div> <table class=\"table-striped table table-sm table-hover table-responsive\"> <tbody> <tr> <th scope=\"row\">is_claimed</th> <td>{data.is_claimed}</td> </tr> <tr> <th scope=\"row\">Is Closed</th> <td>{data.is_closed}</td> </tr> <tr> <th scope=\"row\">yelp</th> <td>{data.url}</td> </tr> <tr> <th scope=\"row\">phone</th> <td>{data.phone}</td> </tr> <tr> <th scope=\"row\">review_count</th> <td>{data.review_count}</td> </tr> <tr> <th scope=\"row\">rating</th> <td>{data.rating}</td> </tr> <tr> <th scope=\"row\">price</th> <td>{data.price}</td> </tr> <tr> <th scope=\"row\">rating</th> <td>{data.rating}</td> </tr> </tbody> </table> </div>', '', '', function(opts) {\n        var self = this;\n        self.data = {}\n        self.data.image_url = \"\"\n        self.bgImg = function () {\n            return \"background: url(\" + self.data.image_url + \");\" +\n                \"background-repeat: no-repeat;\" +\n                \"background-size: cover;\"\n        }\n        self.on('route', function (id) {\n            var settings = {\n                \"url\": \"http://localhost:8080/https://api.yelp.com/v3/businesses/\" + id,\n                \"method\": \"GET\",\n            }\n\n            $.ajax(settings).done(function (response) {\n                console.log(response);\n                self.data = response\n                self.update()\n            });\n        })\n});\n    \n  "
+          "source": "\n    var riot = require('riot')\n    riot.tag2('restaurant-detail', '<div class=\"container m-5\"> <div class=\"jumbotron jumbotron-fluid jumbotronImg\" riot-style=\"{bgImg()}\"> <div class=\"container\"> <h1 class=\"display-4\">{data.name}</h1> <p class=\"lead\">{data.alias}. </p> </div> </div> <table class=\"table-striped table table-sm table-hover table-responsive\"> <tbody> <tr> <th scope=\"row\">is_claimed</th> <td>{data.is_claimed}</td> </tr> <tr> <th scope=\"row\">Is Closed</th> <td>{data.is_closed}</td> </tr> <tr> <th scope=\"row\">yelp</th> <td>{data.url}</td> </tr> <tr> <th scope=\"row\">phone</th> <td>{data.phone}</td> </tr> <tr> <th scope=\"row\">review_count</th> <td>{data.review_count}</td> </tr> <tr> <th scope=\"row\">rating</th> <td>{data.rating}</td> </tr> <tr> <th scope=\"row\">price</th> <td>{data.price}</td> </tr> <tr> <th scope=\"row\">rating</th> <td>{data.rating}</td> </tr> </tbody> </table> </div>', '', '', function(opts) {\n        var self = this;\n        self.data = {}\n        self.data.image_url = \"\"\n        self.bgImg = function () {\n            return \"background: url(\" + self.data.image_url + \");\" +\n                \"background-repeat: no-repeat;\" +\n                \"background-size: cover;\"\n        }\n        self.on('route', function (id) {\n            var settings = {\n                \"url\": \"http://localhost:8080/https://api.yelp.com/v3/businesses/\" + id,\n                \"method\": \"GET\",\n            }\n\n            $.ajax(settings).done(function (response) {\n                self.data = response\n                self.update()\n            });\n        })\n});\n    \n  "
         }
       ],
       "filteredModules": 0,
@@ -1050,7 +1050,7 @@
       "name": "./src/common-config.js",
       "index": 3,
       "index2": 6,
-      "size": 1484,
+      "size": 1565,
       "cacheable": true,
       "built": false,
       "optional": false,
@@ -1082,7 +1082,7 @@
       "optimizationBailout": [
       ],
       "depth": 1,
-      "source": "var riot = require('riot');\nvar route = require('riot-route/tag');\nvar sharedObservable = riot.observable();\nroute.parser(null, function (path, filter) {\n    var f = filter\n      .replace(/\\?/g, '\\\\?')\n      .replace(/\\*/g, '([^/?#]+?)')\n      .replace(/\\.\\./, '.*');\n  \n    var re = new RegExp((\"^\" + f + \"$\"));\n    var args = path.match(re);\n  \n    if (args) {\n      var value = args.slice(1)\n      if (value.length) return value\n      else {\n        var uri = args[0].split('?')\n        return uri[0].split('/')\n      }\n    }\n  })\n  \n\n// route.parser(null, function (path, filter) {\n//     var f = filter\n//         .replace(/\\?/g, '\\\\?')\n//         .replace(/\\*/g, '([^/?#]+?)')\n//         .replace(/\\.\\./, '.*');\n\n//     var re = new RegExp((\"^\" + f + \"$\"));\n//     var args = path.match(re);\n\n//     if (args) {\n//         var value = args.slice(1)\n//         if (value.length) return value\n//         else {\n//             var uri = args[0].split('?')\n//             return uri[0].split('/')\n//         }\n//     }\n// })\nvar registerMountedComponentsMixin = {\n    init: function () {\n        // this.globalObj = globalObj;\n        this.route = route;\n        this.on('route', function (currentNode) {\n            var self = this;\n            this.route = route;\n            var query = self.route.query()\n        })\n    },\n    getSharedObservable: function (params) {\n        return sharedObservable;\n    }\n\n\n}\nriot.mixin(registerMountedComponentsMixin);\n\nmodule.exports = riot;"
+      "source": "var riot = require('riot');\nvar route = require('riot-route/tag');\nvar sharedObservable = riot.observable();\nroute.parser(null, function (path, filter) {\n  var f = filter\n    .replace(/\\?/g, '\\\\?')\n    .replace(/\\*/g, '([^/?#]+?)')\n    .replace(/\\.\\./, '.*');\n\n  var re = new RegExp((\"^\" + f + \"$\"));\n  var args = path.match(re);\n\n  if (args) {\n    var value = args.slice(1)\n    if (value.length) return value\n    else {\n      var uri = args[0].split('?')\n      return uri[0].split('/')\n    }\n  }\n})\n\n\n// route.parser(null, function (path, filter) {\n//     var f = filter\n//         .replace(/\\?/g, '\\\\?')\n//         .replace(/\\*/g, '([^/?#]+?)')\n//         .replace(/\\.\\./, '.*');\n\n//     var re = new RegExp((\"^\" + f + \"$\"));\n//     var args = path.match(re);\n\n//     if (args) {\n//         var value = args.slice(1)\n//         if (value.length) return value\n//         else {\n//             var uri = args[0].split('?')\n//             return uri[0].split('/')\n//         }\n//     }\n// })\nvar globalObj = {}\nvar registerMountedComponentsMixin = {\n  init: function () {\n    // this.globalObj = globalObj;\n    this.route = route;\n    this.on('route', function (currentNode) {\n      var self = this;\n      this.route = route;\n      var query = self.route.query()\n    })\n    this.setDataGlobal = function (k, v) {\n      globalObj[k] = v\n    }\n    this.getDataGlobal = function (k) {\n      return globalObj[k]\n    }\n  },\n  getSharedObservable: function (params) {\n    return sharedObservable;\n  }\n\n\n}\nriot.mixin(registerMountedComponentsMixin);\n\nmodule.exports = riot;"
     },
     {
       "id": 6,
@@ -1254,7 +1254,7 @@
       "name": "./src/cmp/search-result-list.cmp.tag",
       "index": 9,
       "index2": 10,
-      "size": 2279,
+      "size": 2289,
       "cacheable": true,
       "built": false,
       "optional": false,
@@ -1286,7 +1286,7 @@
       "optimizationBailout": [
       ],
       "depth": 2,
-      "source": "\n    var riot = require('riot')\n    require(\"./search-result-compact-card.cmp.tag\")\nriot.tag2('search-result-list', '<ul class=\"list-unstyled\" ref=\"scrollItems\"> <virtual each=\"{item, i in items}\"> <li class=\"media border p-2 item--{i} search-result-item\" data-is=\"search-result-compact-card\" data=\"{item}\"></li> </virtual> </ul>', '', '', function(opts) {\n        var self = this;\n        self.items = []\n        self.addScroll = function () {\n            let sum = 0;\n            let mt5 = false\n            if (self.refs.scrollItems.children.length > 5) {\n                $(self.refs.scrollItems.children).each(function (index) {\n                    if (index <= 5) {\n                        sum += $(this).height();\n                    }\n                });\n                $(self.refs.scrollItems).css({\n                    \"overflow-y\": \"scroll\",\n                    \"max-height\": sum + 'px'\n                })\n            } else {\n                $(self.refs.scrollItems).removeClass({\n                    \"overflow-y\": \"scroll\",\n                    \"max-height\": sum + 'px'\n                })\n            }\n\n        }\n\n        self.on('route', function () {\n            if (self.opts.searched) {\n                var data = self.route.query()\n                self.getSharedObservable().trigger('location-updated', data);\n            }\n        })\n        self.getSharedObservable().on('location-updated', function (data) {\n            let lat = data.lat;\n            let lng = data.lng;\n            var settings = {\n                \"url\": \"http://localhost:8080/https://api.yelp.com/v3/businesses/search?latitude=\" + lat +\n                    \"&longitude=\" + lng,\n                \"method\": \"GET\",\n                \"headers\": {}\n            }\n\n            $.ajax(settings).done(function (response) {\n                console.log(response);\n                var data = response['businesses'];\n                self.items = data;\n                self.update();\n                self.getSharedObservable().trigger('update-pins', data);\n            });\n        })\n        self.on('mount', function (params) {\n            self.items = new Array(5);\n            self.update()\n        })\n        self.on('updated', function (params) {\n            self.addScroll()\n        })\n});\n    \n  "
+      "source": "\n    var riot = require('riot')\n    require(\"./search-result-compact-card.cmp.tag\")\nriot.tag2('search-result-list', '<ul class=\"list-unstyled\" ref=\"scrollItems\"> <virtual each=\"{item, i in items}\"> <li class=\"media border p-2 item--{i} search-result-item\" data-is=\"search-result-compact-card\" data=\"{item}\"></li> </virtual> </ul>', '', '', function(opts) {\n        var self = this;\n        self.items = []\n        self.addScroll = function () {\n            let sum = 0;\n            let mt5 = false\n            if (self.refs.scrollItems.children.length > 5) {\n                $(self.refs.scrollItems.children).each(function (index) {\n                    if (index <= 5) {\n                        sum += $(this).height();\n                    }\n                });\n                $(self.refs.scrollItems).css({\n                    \"overflow-y\": \"scroll\",\n                    \"max-height\": sum + 'px'\n                })\n            } else {\n                $(self.refs.scrollItems).removeClass({\n                    \"overflow-y\": \"scroll\",\n                    \"max-height\": sum + 'px'\n                })\n            }\n\n        }\n\n        self.on('route', function () {\n            if (self.opts.searched) {\n                var data = self.route.query()\n                self.getSharedObservable().trigger('location-updated', data);\n            }\n        })\n        self.getSharedObservable().on('location-updated', function (data) {\n            let lat = data.lat;\n            let lng = data.lng;\n            var settings = {\n                \"url\": \"http://localhost:8080/https://api.yelp.com/v3/businesses/search?latitude=\" + lat +\n                    \"&longitude=\" + lng,\n                \"method\": \"GET\",\n                \"headers\": {}\n            }\n\n            $.ajax(settings).done(function (response) {\n                var data = response['businesses'];\n                self.items = data;\n                self.update();\n                self.setDataGlobal('businesses',data)\n                self.getSharedObservable().trigger('data-updated');\n            });\n        })\n        self.on('mount', function (params) {\n            self.items = new Array(5);\n            self.update()\n        })\n        self.on('updated', function (params) {\n            self.addScroll()\n        })\n});\n    \n  "
     },
     {
       "id": 11,
@@ -1374,7 +1374,7 @@
       "name": "./src/cmp/map-cmp.tag",
       "index": 13,
       "index2": 11,
-      "size": 7505,
+      "size": 6665,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -1406,7 +1406,7 @@
       "optimizationBailout": [
       ],
       "depth": 2,
-      "source": "\n    var riot = require('riot')\n    riot.tag2('map-cmp', '<input id=\"pac-input\" class=\"controls\" type=\"text\" placeholder=\"Search Box\"> <div id=\"map\"></div>', 'map-cmp #map,[data-is=\"map-cmp\"] #map{ height: 100%; } map-cmp html,[data-is=\"map-cmp\"] html,map-cmp body,[data-is=\"map-cmp\"] body{ height: 100%; margin: 0; padding: 0; } map-cmp #description,[data-is=\"map-cmp\"] #description{ font-family: Roboto; font-size: 15px; font-weight: 300; } map-cmp #infowindow-content .title,[data-is=\"map-cmp\"] #infowindow-content .title{ font-weight: bold; } map-cmp #infowindow-content,[data-is=\"map-cmp\"] #infowindow-content{ display: none; } map-cmp #map #infowindow-content,[data-is=\"map-cmp\"] #map #infowindow-content{ display: inline; } map-cmp .pac-card,[data-is=\"map-cmp\"] .pac-card{ margin: 10px 10px 0 0; border-radius: 2px 0 0 2px; box-sizing: border-box; -moz-box-sizing: border-box; outline: none; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); background-color: #fff; font-family: Roboto; } map-cmp #pac-container,[data-is=\"map-cmp\"] #pac-container{ padding-bottom: 12px; margin-right: 12px; } map-cmp .pac-controls,[data-is=\"map-cmp\"] .pac-controls{ display: inline-block; padding: 5px 11px; } map-cmp .pac-controls label,[data-is=\"map-cmp\"] .pac-controls label{ font-family: Roboto; font-size: 13px; font-weight: 300; } map-cmp #pac-input,[data-is=\"map-cmp\"] #pac-input{ background-color: #fff; font-family: Roboto; font-size: 15px; font-weight: 300; margin-left: 12px; padding: 0 11px 0 13px; text-overflow: ellipsis; width: 400px; } map-cmp #pac-input:focus,[data-is=\"map-cmp\"] #pac-input:focus{ border-color: #4d90fe; } map-cmp #title,[data-is=\"map-cmp\"] #title{ color: #fff; background-color: #4d90fe; font-size: 25px; font-weight: 500; padding: 6px 12px; } map-cmp #target,[data-is=\"map-cmp\"] #target{ width: 345px; }', '', function(opts) {\n        var self = this;\n        self.businesses = [];\n        self.getSharedObservable().on('update-pins', function (businesses) {\n            self.businesses = businesses\n\n            if(typeof google != 'undefined')  {\n                self.businesses.forEach(element => {\n                        debugger\n                        var coordinates = element['coordinates']\n                        var uluru = {\n                            lat: coordinates['latitude'],\n                            lng: coordinates['longitude']\n                        };\n                        debugger\n                        new google.maps.Marker({\n                            position: uluru,\n                            map: self.map\n                        });\n                    });\n\n                    self.businesses = [];\n            }\n\n        });\n\n        self.on('route', function (params) {\n            self.data = {}\n            self.data.lat_lng = self.route.query()\n\n            console.log(self)\n\n        })\n        $.getScript(\n            \"https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places\",\n            function (data, textStatus, jqxhr) {\n\n                self.initAutocomplete()\n            });\n\n        self.initAutocomplete = function () {\n            var map = new google.maps.Map(document.getElementById('map'), {\n                center: {\n                    lat: Number(self.data.lat_lng.lat),\n                    lng: Number(self.data.lat_lng.lng)\n                },\n                zoom: 13,\n                mapTypeId: 'roadmap'\n            });\n            self.map = map;\n\n            var input = document.getElementById('pac-input');\n            var searchBox = new google.maps.places.SearchBox(input);\n            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);\n\n            map.addListener('bounds_changed', function () {\n                searchBox.setBounds(map.getBounds());\n            });\n\n            var markers = [];\n\n            searchBox.addListener('places_changed', function () {\n\n                self.getSharedObservable().on('update-pins', function (businesses) {\n                    self.businesses = businesses\n\n                    self.businesses.forEach(element => {\n                        debugger\n                        var coordinates = element['coordinates']\n                        var uluru = {\n                            lat: coordinates['latitude'],\n                            lng: coordinates['longitude']\n                        };\n                        debugger\n                        new google.maps.Marker({\n                            position: uluru,\n                            map: self.map\n                        });\n                    });\n\n                    self.businesses = [];\n\n                });\n\n                var places = searchBox.getPlaces();\n\n                if (places.length == 0) {\n                    return;\n                } else {\n                    let map_location = places[0];\n                    let lat = map_location.geometry.location.lat()\n                    let lng = map_location.geometry.location.lng()\n                    let formatted_address = map_location.formatted_address\n\n                    self.route(\"/search?lat=\" + lat + \"&lng=\" + lng + \"&formatted_address=\" +formatted_address)\n\n                }\n\n                markers.forEach(function (marker) {\n                    marker.setMap(null);\n                });\n                markers = [];\n\n                var bounds = new google.maps.LatLngBounds();\n                places.forEach(function (place) {\n                    if (!place.geometry) {\n                        console.log(\"Returned place contains no geometry\");\n                        return;\n                    }\n                    var icon = {\n                        url: place.icon,\n                        size: new google.maps.Size(71, 71),\n                        origin: new google.maps.Point(0, 0),\n                        anchor: new google.maps.Point(17, 34),\n                        scaledSize: new google.maps.Size(25, 25)\n                    };\n\n                    markers.push(new google.maps.Marker({\n                        map: map,\n                        icon: icon,\n                        title: place.name,\n                        position: place.geometry.location\n                    }));\n\n                    if (place.geometry.viewport) {\n\n                        bounds.union(place.geometry.viewport);\n                    } else {\n                        bounds.extend(place.geometry.location);\n                    }\n                });\n                map.fitBounds(bounds);\n            });\n            self.businesses.forEach(element => {\n                debugger\n                var coordinates = element['coordinates']\n                var uluru = {\n                    lat: coordinates['latitude'],\n                    lng: coordinates['longitude']\n                };\n                debugger\n                new google.maps.Marker({\n                    position: uluru,\n                    map: self.map\n                });\n            });\n\n            self.businesses = [];\n\n            self.map.addListener('click', function (e) {\n                self.placeMarkerAndPanTo(e.latLng, map);\n            });\n\n        }\n        self.placeMarkerAndPanTo=function(lat_lng, map) {\n            debugger;\n            var lat = lat_lng.lat()\n            var lng = lat_lng.lng()\n            var formatted_address = null\n            self.route(\"/search?lat=\" + lat + \"&lng=\" + lng + \"&formatted_address=\" +formatted_address)\n\n        }\n});\n    \n  "
+      "source": "\n    var riot = require('riot')\n    riot.tag2('map-cmp', '<input id=\"pac-input\" class=\"controls\" type=\"text\" placeholder=\"Search Box\"> <div id=\"map\"></div>', 'map-cmp #map,[data-is=\"map-cmp\"] #map{ height: 100%; } map-cmp html,[data-is=\"map-cmp\"] html,map-cmp body,[data-is=\"map-cmp\"] body{ height: 100%; margin: 0; padding: 0; } map-cmp #description,[data-is=\"map-cmp\"] #description{ font-family: Roboto; font-size: 15px; font-weight: 300; } map-cmp #infowindow-content .title,[data-is=\"map-cmp\"] #infowindow-content .title{ font-weight: bold; } map-cmp #infowindow-content,[data-is=\"map-cmp\"] #infowindow-content{ display: none; } map-cmp #map #infowindow-content,[data-is=\"map-cmp\"] #map #infowindow-content{ display: inline; } map-cmp .pac-card,[data-is=\"map-cmp\"] .pac-card{ margin: 10px 10px 0 0; border-radius: 2px 0 0 2px; box-sizing: border-box; -moz-box-sizing: border-box; outline: none; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); background-color: #fff; font-family: Roboto; } map-cmp #pac-container,[data-is=\"map-cmp\"] #pac-container{ padding-bottom: 12px; margin-right: 12px; } map-cmp .pac-controls,[data-is=\"map-cmp\"] .pac-controls{ display: inline-block; padding: 5px 11px; } map-cmp .pac-controls label,[data-is=\"map-cmp\"] .pac-controls label{ font-family: Roboto; font-size: 13px; font-weight: 300; } map-cmp #pac-input,[data-is=\"map-cmp\"] #pac-input{ background-color: #fff; font-family: Roboto; font-size: 15px; font-weight: 300; margin-left: 12px; padding: 0 11px 0 13px; text-overflow: ellipsis; width: 400px; } map-cmp #pac-input:focus,[data-is=\"map-cmp\"] #pac-input:focus{ border-color: #4d90fe; } map-cmp #title,[data-is=\"map-cmp\"] #title{ color: #fff; background-color: #4d90fe; font-size: 25px; font-weight: 500; padding: 6px 12px; } map-cmp #target,[data-is=\"map-cmp\"] #target{ width: 345px; }', '', function(opts) {\n        var self = this;\n        self.getSharedObservable().on('data-updated', function (params) {\n            self.drawNewMarkers()\n        });\n        self.on('route', function (params) {\n            self.data = {}\n            self.data.lat_lng = self.route.query()\n            if (Object.keys(self.data).length) {\n                self.data.lat_lng = {\n                    lat: 37.61496,\n                    lng: -122.39005380000003\n                }\n                self.setDataGlobal('businesses', [])\n            }\n            self.drawNewMarkers();\n        })\n\n        self.on('mount', function (params) {\n            $.getScript(\n                \"https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places\",\n                function (data, textStatus, jqxhr) {\n\n                    self.initAutocomplete()\n\n                });\n\n        })\n\n        self.initAutocomplete = function () {\n            var map = new google.maps.Map(document.getElementById('map'), {\n                center: {\n                    lat: Number(self.data.lat_lng.lat),\n                    lng: Number(self.data.lat_lng.lng)\n                },\n                zoom: 13,\n                mapTypeId: 'roadmap'\n            });\n            self.map = map;\n\n            var input = document.getElementById('pac-input');\n            var searchBox = new google.maps.places.SearchBox(input);\n            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);\n\n            map.addListener('bounds_changed', function () {\n                searchBox.setBounds(map.getBounds());\n            });\n\n            var markers = [];\n\n            searchBox.addListener('places_changed', function () {\n                var places = searchBox.getPlaces();\n                if (places.length == 0) {\n                    return;\n                } else {\n                    let map_location = places[0];\n                    let lat = map_location.geometry.location.lat()\n                    let lng = map_location.geometry.location.lng()\n                    let formatted_address = map_location.formatted_address\n\n                    self.route(\"/search?lat=\" + lat + \"&lng=\" + lng + \"&formatted_address=\" +\n                        formatted_address)\n\n                }\n\n                markers.forEach(function (marker) {\n                    marker.setMap(null);\n                });\n                markers = [];\n\n                var bounds = new google.maps.LatLngBounds();\n                places.forEach(function (place) {\n                    if (!place.geometry) {\n                        console.log(\"Returned place contains no geometry\");\n                        return;\n                    }\n                    var icon = {\n                        url: place.icon,\n                        size: new google.maps.Size(71, 71),\n                        origin: new google.maps.Point(0, 0),\n                        anchor: new google.maps.Point(17, 34),\n                        scaledSize: new google.maps.Size(25, 25)\n                    };\n\n                    markers.push(new google.maps.Marker({\n                        map: map,\n                        icon: icon,\n                        title: place.name,\n                        position: place.geometry.location\n                    }));\n\n                    if (place.geometry.viewport) {\n\n                        bounds.union(place.geometry.viewport);\n                    } else {\n                        bounds.extend(place.geometry.location);\n                    }\n                });\n                map.fitBounds(bounds);\n            });\n\n            self.drawNewMarkers();\n            self.map.addListener('click', function (e) {\n                self.placeMarkerAndPanTo(e.latLng, map);\n            });\n\n        }\n        self.placeMarkerAndPanTo = function (lat_lng, map) {\n            var lat = lat_lng.lat()\n            var lng = lat_lng.lng()\n            var formatted_address = null\n            self.route(\"/search?lat=\" + lat + \"&lng=\" + lng + \"&formatted_address=\" + formatted_address)\n\n        }\n        self.drawNewMarkers = function () {\n            if ((typeof google == 'undefined') || !self.isMounted) {\n                return\n            }\n            setTimeout(() => {\n                self.getDataGlobal('businesses').forEach(element => {\n                    var coordinates = element['coordinates']\n                    var uluru = {\n                        lat: coordinates['latitude'],\n                        lng: coordinates['longitude']\n                    };\n\n                    new google.maps.Marker({\n                        position: uluru,\n                        map: self.map\n                    });\n                });\n                self.setDataGlobal('businesses', [])\n\n            }, 100);\n\n        }\n});\n    \n  "
     },
     {
       "id": 14,
@@ -1414,7 +1414,7 @@
       "name": "./src/cmp/restaurant-detail.cmp.tag",
       "index": 14,
       "index2": 12,
-      "size": 1625,
+      "size": 1586,
       "cacheable": true,
       "built": false,
       "optional": false,
@@ -1446,7 +1446,7 @@
       "optimizationBailout": [
       ],
       "depth": 2,
-      "source": "\n    var riot = require('riot')\n    riot.tag2('restaurant-detail', '<div class=\"container m-5\"> <div class=\"jumbotron jumbotron-fluid jumbotronImg\" riot-style=\"{bgImg()}\"> <div class=\"container\"> <h1 class=\"display-4\">{data.name}</h1> <p class=\"lead\">{data.alias}. </p> </div> </div> <table class=\"table-striped table table-sm table-hover table-responsive\"> <tbody> <tr> <th scope=\"row\">is_claimed</th> <td>{data.is_claimed}</td> </tr> <tr> <th scope=\"row\">Is Closed</th> <td>{data.is_closed}</td> </tr> <tr> <th scope=\"row\">yelp</th> <td>{data.url}</td> </tr> <tr> <th scope=\"row\">phone</th> <td>{data.phone}</td> </tr> <tr> <th scope=\"row\">review_count</th> <td>{data.review_count}</td> </tr> <tr> <th scope=\"row\">rating</th> <td>{data.rating}</td> </tr> <tr> <th scope=\"row\">price</th> <td>{data.price}</td> </tr> <tr> <th scope=\"row\">rating</th> <td>{data.rating}</td> </tr> </tbody> </table> </div>', '', '', function(opts) {\n        var self = this;\n        self.data = {}\n        self.data.image_url = \"\"\n        self.bgImg = function () {\n            return \"background: url(\" + self.data.image_url + \");\" +\n                \"background-repeat: no-repeat;\" +\n                \"background-size: cover;\"\n        }\n        self.on('route', function (id) {\n            var settings = {\n                \"url\": \"http://localhost:8080/https://api.yelp.com/v3/businesses/\" + id,\n                \"method\": \"GET\",\n            }\n\n            $.ajax(settings).done(function (response) {\n                console.log(response);\n                self.data = response\n                self.update()\n            });\n        })\n});\n    \n  "
+      "source": "\n    var riot = require('riot')\n    riot.tag2('restaurant-detail', '<div class=\"container m-5\"> <div class=\"jumbotron jumbotron-fluid jumbotronImg\" riot-style=\"{bgImg()}\"> <div class=\"container\"> <h1 class=\"display-4\">{data.name}</h1> <p class=\"lead\">{data.alias}. </p> </div> </div> <table class=\"table-striped table table-sm table-hover table-responsive\"> <tbody> <tr> <th scope=\"row\">is_claimed</th> <td>{data.is_claimed}</td> </tr> <tr> <th scope=\"row\">Is Closed</th> <td>{data.is_closed}</td> </tr> <tr> <th scope=\"row\">yelp</th> <td>{data.url}</td> </tr> <tr> <th scope=\"row\">phone</th> <td>{data.phone}</td> </tr> <tr> <th scope=\"row\">review_count</th> <td>{data.review_count}</td> </tr> <tr> <th scope=\"row\">rating</th> <td>{data.rating}</td> </tr> <tr> <th scope=\"row\">price</th> <td>{data.price}</td> </tr> <tr> <th scope=\"row\">rating</th> <td>{data.rating}</td> </tr> </tbody> </table> </div>', '', '', function(opts) {\n        var self = this;\n        self.data = {}\n        self.data.image_url = \"\"\n        self.bgImg = function () {\n            return \"background: url(\" + self.data.image_url + \");\" +\n                \"background-repeat: no-repeat;\" +\n                \"background-size: cover;\"\n        }\n        self.on('route', function (id) {\n            var settings = {\n                \"url\": \"http://localhost:8080/https://api.yelp.com/v3/businesses/\" + id,\n                \"method\": \"GET\",\n            }\n\n            $.ajax(settings).done(function (response) {\n                self.data = response\n                self.update()\n            });\n        })\n});\n    \n  "
     }
   ],
   "filteredModules": 0,
@@ -1464,7 +1464,7 @@
           "name": "pages/app.html",
           "size": 545977,
           "chunks": [
-            0
+            1
           ],
           "chunkNames": [
           ]
@@ -1474,7 +1474,7 @@
       "entrypoints": {
         "undefined": {
           "chunks": [
-            0
+            1
           ],
           "assets": [
             "pages/app.html"
@@ -1483,7 +1483,7 @@
       },
       "chunks": [
         {
-          "id": 0,
+          "id": 1,
           "rendered": false,
           "initial": true,
           "entry": true,
@@ -1494,7 +1494,7 @@
           "files": [
             "pages/app.html"
           ],
-          "hash": "4b95b09e69cc36b71d6d",
+          "hash": "f9da32b620baf13f134e",
           "parents": [
           ],
           "modules": [
@@ -1510,7 +1510,7 @@
               "optional": false,
               "prefetched": false,
               "chunks": [
-                0
+                1
               ],
               "assets": [
               ],
@@ -1541,7 +1541,7 @@
               "optional": false,
               "prefetched": false,
               "chunks": [
-                0
+                1
               ],
               "assets": [
               ],
@@ -1581,7 +1581,7 @@
               "optional": false,
               "prefetched": false,
               "chunks": [
-                0
+                1
               ],
               "assets": [
               ],
@@ -1621,7 +1621,7 @@
               "optional": false,
               "prefetched": false,
               "chunks": [
-                0
+                1
               ],
               "assets": [
               ],
@@ -1677,7 +1677,7 @@
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            1
           ],
           "assets": [
           ],
@@ -1708,7 +1708,7 @@
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            1
           ],
           "assets": [
           ],
@@ -1748,7 +1748,7 @@
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            1
           ],
           "assets": [
           ],
@@ -1788,7 +1788,7 @@
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            1
           ],
           "assets": [
           ],

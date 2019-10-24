@@ -1,6 +1,158 @@
 <map-cmp>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+    <script>
+        var self = this;
+        self.getSharedObservable().on('data-updated', function (params) {
+            self.drawNewMarkers()
+        });
+        self.on('route', function (params) {
+            self.data = {}
+            self.data.lat_lng = self.route.query()
+            if (Object.keys(self.data).length) {
+                self.data.lat_lng = {
+                    lat: 37.61496,
+                    lng: -122.39005380000003
+                }
+                self.setDataGlobal('businesses', [])
+            }
+            self.drawNewMarkers();
+        })
+
+        self.on('mount', function (params) {
+            $.getScript(
+                "https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places",
+                function (data, textStatus, jqxhr) {
+                    // this is your callback.
+                    self.initAutocomplete()
+
+                });
+
+        })
 
 
+        // This example adds a search box to a map, using the Google Place Autocomplete
+        // feature. People can enter geographical searches. The search box will return a
+        // pick list containing a mix of places and predicted search terms.
+
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        self.initAutocomplete = function () {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: Number(self.data.lat_lng.lat),
+                    lng: Number(self.data.lat_lng.lng)
+                },
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+            self.map = map;
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function () {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function () {
+                var places = searchBox.getPlaces();
+                if (places.length == 0) {
+                    return;
+                } else {
+                    let map_location = places[0];
+                    let lat = map_location.geometry.location.lat()
+                    let lng = map_location.geometry.location.lng()
+                    let formatted_address = map_location.formatted_address
+
+                    self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +
+                        formatted_address)
+
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function (place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+
+            self.drawNewMarkers();
+            self.map.addListener('click', function (e) {
+                self.placeMarkerAndPanTo(e.latLng, map);
+            });
+
+        }
+        self.placeMarkerAndPanTo = function (lat_lng, map) {
+            var lat = lat_lng.lat()
+            var lng = lat_lng.lng()
+            var formatted_address = null
+            self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" + formatted_address)
+
+        }
+        self.drawNewMarkers = function () {
+            if ((typeof google == 'undefined') || !self.isMounted) {
+                return
+            }
+            setTimeout(() => {
+                self.getDataGlobal('businesses').forEach(element => {
+                    var coordinates = element['coordinates']
+                    var uluru = {
+                        lat: coordinates['latitude'],
+                        lng: coordinates['longitude']
+                    };
+
+                    new google.maps.Marker({
+                        position: uluru,
+                        map: self.map
+                    });
+                });
+                self.setDataGlobal('businesses', [])
+
+            }, 100);
+
+
+        }
+    </script>
     <style>
         /* Always set the map height explicitly to define the size of the div
                * element that contains the map. */
@@ -88,192 +240,5 @@
             width: 345px;
         }
     </style>
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map"></div>
-    <script>
-        var self = this;
-        self.businesses = [];
-        self.getSharedObservable().on('update-pins', function (businesses) {
-            self.businesses = businesses
-            // var businesses = data['businesses']  
-            if(typeof google != 'undefined')  {
-                self.businesses.forEach(element => {
-                        debugger
-                        var coordinates = element['coordinates']
-                        var uluru = {
-                            lat: coordinates['latitude'],
-                            lng: coordinates['longitude']
-                        };
-                        debugger
-                        new google.maps.Marker({
-                            position: uluru,
-                            map: self.map
-                        });
-                    });
-
-                    self.businesses = [];
-            }
-
-
-        });
-
-
-
-        self.on('route', function (params) {
-            self.data = {}
-            self.data.lat_lng = self.route.query()
-
-            console.log(self)
-
-        })
-        $.getScript(
-            "https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places",
-            function (data, textStatus, jqxhr) {
-                // this is your callback.
-                self.initAutocomplete()
-            });
-
-        // This example adds a search box to a map, using the Google Place Autocomplete
-        // feature. People can enter geographical searches. The search box will return a
-        // pick list containing a mix of places and predicted search terms.
-
-        // This example requires the Places library. Include the libraries=places
-        // parameter when you first load the API. For example:
-        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-        self.initAutocomplete = function () {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: Number(self.data.lat_lng.lat),
-                    lng: Number(self.data.lat_lng.lng)
-                },
-                zoom: 13,
-                mapTypeId: 'roadmap'
-            });
-            self.map = map;
-            // Create the search box and link it to the UI element.
-            var input = document.getElementById('pac-input');
-            var searchBox = new google.maps.places.SearchBox(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function () {
-                searchBox.setBounds(map.getBounds());
-            });
-
-            var markers = [];
-            // Listen for the event fired when the user selects a prediction and retrieve
-            // more details for that place.
-            searchBox.addListener('places_changed', function () {
-
-                self.getSharedObservable().on('update-pins', function (businesses) {
-                    self.businesses = businesses
-                    // var businesses = data['businesses']  
-                    self.businesses.forEach(element => {
-                        debugger
-                        var coordinates = element['coordinates']
-                        var uluru = {
-                            lat: coordinates['latitude'],
-                            lng: coordinates['longitude']
-                        };
-                        debugger
-                        new google.maps.Marker({
-                            position: uluru,
-                            map: self.map
-                        });
-                    });
-
-                    self.businesses = [];
-
-                });
-
-                var places = searchBox.getPlaces();
-
-                if (places.length == 0) {
-                    return;
-                } else {
-                    let map_location = places[0];
-                    let lat = map_location.geometry.location.lat()
-                    let lng = map_location.geometry.location.lng()
-                    let formatted_address = map_location.formatted_address
-                    // console.log(self)
-
-                    self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +formatted_address)
-
-                    // self.getSharedObservable().trigger('location-updated',{
-                    //     lat:lat,
-                    //     lng:lng
-                    // })
-                }
-
-                // Clear out the old markers.
-                markers.forEach(function (marker) {
-                    marker.setMap(null);
-                });
-                markers = [];
-
-                // For each place, get the icon, name and location.
-                var bounds = new google.maps.LatLngBounds();
-                places.forEach(function (place) {
-                    if (!place.geometry) {
-                        console.log("Returned place contains no geometry");
-                        return;
-                    }
-                    var icon = {
-                        url: place.icon,
-                        size: new google.maps.Size(71, 71),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(17, 34),
-                        scaledSize: new google.maps.Size(25, 25)
-                    };
-
-                    // Create a marker for each place.
-                    markers.push(new google.maps.Marker({
-                        map: map,
-                        icon: icon,
-                        title: place.name,
-                        position: place.geometry.location
-                    }));
-
-                    if (place.geometry.viewport) {
-                        // Only geocodes have viewport.
-                        bounds.union(place.geometry.viewport);
-                    } else {
-                        bounds.extend(place.geometry.location);
-                    }
-                });
-                map.fitBounds(bounds);
-            });
-            self.businesses.forEach(element => {
-                debugger
-                var coordinates = element['coordinates']
-                var uluru = {
-                    lat: coordinates['latitude'],
-                    lng: coordinates['longitude']
-                };
-                debugger
-                new google.maps.Marker({
-                    position: uluru,
-                    map: self.map
-                });
-            });
-
-            self.businesses = [];
-
-
-            self.map.addListener('click', function (e) {
-                self.placeMarkerAndPanTo(e.latLng, map);
-            });
-
-        }
-        self.placeMarkerAndPanTo=function(lat_lng, map) {
-            debugger;
-            var lat = lat_lng.lat()
-            var lng = lat_lng.lng()
-            var formatted_address = null
-            self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +formatted_address)
-
-        }
-    </script>
 
 </map-cmp>

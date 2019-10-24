@@ -13792,24 +13792,24 @@ var riot = __webpack_require__(0);
 var route = __webpack_require__(6);
 var sharedObservable = riot.observable();
 route.parser(null, function (path, filter) {
-    var f = filter
-      .replace(/\?/g, '\\?')
-      .replace(/\*/g, '([^/?#]+?)')
-      .replace(/\.\./, '.*');
-  
-    var re = new RegExp(("^" + f + "$"));
-    var args = path.match(re);
-  
-    if (args) {
-      var value = args.slice(1)
-      if (value.length) return value
-      else {
-        var uri = args[0].split('?')
-        return uri[0].split('/')
-      }
+  var f = filter
+    .replace(/\?/g, '\\?')
+    .replace(/\*/g, '([^/?#]+?)')
+    .replace(/\.\./, '.*');
+
+  var re = new RegExp(("^" + f + "$"));
+  var args = path.match(re);
+
+  if (args) {
+    var value = args.slice(1)
+    if (value.length) return value
+    else {
+      var uri = args[0].split('?')
+      return uri[0].split('/')
     }
-  })
-  
+  }
+})
+
 
 // route.parser(null, function (path, filter) {
 //     var f = filter
@@ -13829,19 +13829,26 @@ route.parser(null, function (path, filter) {
 //         }
 //     }
 // })
+var globalObj = {}
 var registerMountedComponentsMixin = {
-    init: function () {
-        // this.globalObj = globalObj;
-        this.route = route;
-        this.on('route', function (currentNode) {
-            var self = this;
-            this.route = route;
-            var query = self.route.query()
-        })
-    },
-    getSharedObservable: function (params) {
-        return sharedObservable;
+  init: function () {
+    // this.globalObj = globalObj;
+    this.route = route;
+    this.on('route', function (currentNode) {
+      var self = this;
+      this.route = route;
+      var query = self.route.query()
+    })
+    this.setDataGlobal = function (k, v) {
+      globalObj[k] = v
     }
+    this.getDataGlobal = function (k) {
+      return globalObj[k]
+    }
+  },
+  getSharedObservable: function (params) {
+    return sharedObservable;
+  }
 
 
 }
@@ -14464,11 +14471,11 @@ riot.tag2('search-result-list', '<ul class="list-unstyled" ref="scrollItems"> <v
             }
 
             $.ajax(settings).done(function (response) {
-                console.log(response);
                 var data = response['businesses'];
                 self.items = data;
                 self.update();
-                self.getSharedObservable().trigger('update-pins', data);
+                self.setDataGlobal('businesses',data)
+                self.getSharedObservable().trigger('data-updated');
             });
         })
         self.on('mount', function (params) {
@@ -14553,43 +14560,32 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
     var riot = __webpack_require__(0)
     riot.tag2('map-cmp', '<input id="pac-input" class="controls" type="text" placeholder="Search Box"> <div id="map"></div>', 'map-cmp #map,[data-is="map-cmp"] #map{ height: 100%; } map-cmp html,[data-is="map-cmp"] html,map-cmp body,[data-is="map-cmp"] body{ height: 100%; margin: 0; padding: 0; } map-cmp #description,[data-is="map-cmp"] #description{ font-family: Roboto; font-size: 15px; font-weight: 300; } map-cmp #infowindow-content .title,[data-is="map-cmp"] #infowindow-content .title{ font-weight: bold; } map-cmp #infowindow-content,[data-is="map-cmp"] #infowindow-content{ display: none; } map-cmp #map #infowindow-content,[data-is="map-cmp"] #map #infowindow-content{ display: inline; } map-cmp .pac-card,[data-is="map-cmp"] .pac-card{ margin: 10px 10px 0 0; border-radius: 2px 0 0 2px; box-sizing: border-box; -moz-box-sizing: border-box; outline: none; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); background-color: #fff; font-family: Roboto; } map-cmp #pac-container,[data-is="map-cmp"] #pac-container{ padding-bottom: 12px; margin-right: 12px; } map-cmp .pac-controls,[data-is="map-cmp"] .pac-controls{ display: inline-block; padding: 5px 11px; } map-cmp .pac-controls label,[data-is="map-cmp"] .pac-controls label{ font-family: Roboto; font-size: 13px; font-weight: 300; } map-cmp #pac-input,[data-is="map-cmp"] #pac-input{ background-color: #fff; font-family: Roboto; font-size: 15px; font-weight: 300; margin-left: 12px; padding: 0 11px 0 13px; text-overflow: ellipsis; width: 400px; } map-cmp #pac-input:focus,[data-is="map-cmp"] #pac-input:focus{ border-color: #4d90fe; } map-cmp #title,[data-is="map-cmp"] #title{ color: #fff; background-color: #4d90fe; font-size: 25px; font-weight: 500; padding: 6px 12px; } map-cmp #target,[data-is="map-cmp"] #target{ width: 345px; }', '', function(opts) {
         var self = this;
-        self.businesses = [];
-        self.getSharedObservable().on('update-pins', function (businesses) {
-            self.businesses = businesses
-
-            if(typeof google != 'undefined')  {
-                self.businesses.forEach(element => {
-                        debugger
-                        var coordinates = element['coordinates']
-                        var uluru = {
-                            lat: coordinates['latitude'],
-                            lng: coordinates['longitude']
-                        };
-                        debugger
-                        new google.maps.Marker({
-                            position: uluru,
-                            map: self.map
-                        });
-                    });
-
-                    self.businesses = [];
-            }
-
+        self.getSharedObservable().on('data-updated', function (params) {
+            self.drawNewMarkers()
         });
-
         self.on('route', function (params) {
             self.data = {}
             self.data.lat_lng = self.route.query()
+            if (Object.keys(self.data).length) {
+                self.data.lat_lng = {
+                    lat: 37.61496,
+                    lng: -122.39005380000003
+                }
+                self.setDataGlobal('businesses', [])
+            }
+            self.drawNewMarkers();
+        })
 
-            console.log(self)
+        self.on('mount', function (params) {
+            $.getScript(
+                "https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places",
+                function (data, textStatus, jqxhr) {
+
+                    self.initAutocomplete()
+
+                });
 
         })
-        $.getScript(
-            "https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw&libraries=places",
-            function (data, textStatus, jqxhr) {
-
-                self.initAutocomplete()
-            });
 
         self.initAutocomplete = function () {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -14613,30 +14609,7 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
             var markers = [];
 
             searchBox.addListener('places_changed', function () {
-
-                self.getSharedObservable().on('update-pins', function (businesses) {
-                    self.businesses = businesses
-
-                    self.businesses.forEach(element => {
-                        debugger
-                        var coordinates = element['coordinates']
-                        var uluru = {
-                            lat: coordinates['latitude'],
-                            lng: coordinates['longitude']
-                        };
-                        debugger
-                        new google.maps.Marker({
-                            position: uluru,
-                            map: self.map
-                        });
-                    });
-
-                    self.businesses = [];
-
-                });
-
                 var places = searchBox.getPlaces();
-
                 if (places.length == 0) {
                     return;
                 } else {
@@ -14645,7 +14618,8 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
                     let lng = map_location.geometry.location.lng()
                     let formatted_address = map_location.formatted_address
 
-                    self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +formatted_address)
+                    self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +
+                        formatted_address)
 
                 }
 
@@ -14684,33 +14658,40 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
                 });
                 map.fitBounds(bounds);
             });
-            self.businesses.forEach(element => {
-                debugger
-                var coordinates = element['coordinates']
-                var uluru = {
-                    lat: coordinates['latitude'],
-                    lng: coordinates['longitude']
-                };
-                debugger
-                new google.maps.Marker({
-                    position: uluru,
-                    map: self.map
-                });
-            });
 
-            self.businesses = [];
-
+            self.drawNewMarkers();
             self.map.addListener('click', function (e) {
                 self.placeMarkerAndPanTo(e.latLng, map);
             });
 
         }
-        self.placeMarkerAndPanTo=function(lat_lng, map) {
-            debugger;
+        self.placeMarkerAndPanTo = function (lat_lng, map) {
             var lat = lat_lng.lat()
             var lng = lat_lng.lng()
             var formatted_address = null
-            self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" +formatted_address)
+            self.route("/search?lat=" + lat + "&lng=" + lng + "&formatted_address=" + formatted_address)
+
+        }
+        self.drawNewMarkers = function () {
+            if ((typeof google == 'undefined') || !self.isMounted) {
+                return
+            }
+            setTimeout(() => {
+                self.getDataGlobal('businesses').forEach(element => {
+                    var coordinates = element['coordinates']
+                    var uluru = {
+                        lat: coordinates['latitude'],
+                        lng: coordinates['longitude']
+                    };
+
+                    new google.maps.Marker({
+                        position: uluru,
+                        map: self.map
+                    });
+                });
+                self.setDataGlobal('businesses', [])
+
+            }, 100);
 
         }
 });
@@ -14740,7 +14721,6 @@ riot.tag2('search-result-compact-card', '<div class="card"> <div class="card-bod
             }
 
             $.ajax(settings).done(function (response) {
-                console.log(response);
                 self.data = response
                 self.update()
             });

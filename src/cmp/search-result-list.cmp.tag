@@ -49,11 +49,11 @@ require("./search-result-compact-card.cmp.tag")
             }
 
             $.ajax(settings).done(function (response) {
-                console.log(response);
                 var data = response['businesses'];
                 self.items = data;
                 self.update();
-                self.getSharedObservable().trigger('update-pins', data);
+                self.setDataGlobal('businesses',data)
+                self.getSharedObservable().trigger('data-updated');
             });
         })
         self.on('mount', function (params) {

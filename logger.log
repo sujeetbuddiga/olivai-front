@@ -2,26 +2,26 @@
 Webpack is watching the files…
 
 [JARVIS] Starting dashboard on: http://localhost:1337
-Hash: 12a5180f63e9fd2dcf14
+Hash: ef45369e35e0e510405f
 Version: webpack 3.11.0
-Time: 16761ms
+Time: 12668ms
                           Asset       Size  Chunks                    Chunk Names
   fonts/fontawesome-webfont.eot     166 kB          [emitted]         
 fonts/fontawesome-webfont.woff2    77.2 kB          [emitted]         
  fonts/fontawesome-webfont.woff      98 kB          [emitted]         
   fonts/fontawesome-webfont.ttf     166 kB          [emitted]         
  images/fontawesome-webfont.svg     444 kB          [emitted]  [big]  
-               js/app.bundle.js     404 kB       0  [emitted]  [big]  app
+               js/app.bundle.js     407 kB       0  [emitted]  [big]  app
              css/app.bundle.css     185 kB       0  [emitted]         app
                  pages/app.html  997 bytes          [emitted]         
    [2] ./src/apps/app.app.js 300 bytes {0} [built]
    [5] ./src/common-config.js 1.48 kB {0} [built]
    [9] ./src/apps/app.app.tag 831 bytes {0} [built]
-  [10] ./src/cmp/search-result-list.cmp.tag 2.23 kB {0} [built]
+  [10] ./src/cmp/search-result-list.cmp.tag 2.28 kB {0} [built]
   [11] ./src/cmp/search-result-compact-card.cmp.tag 811 bytes {0} [built]
   [12] ./src/cmp/ratings-cmp.tag 1.17 kB {0} [built]
-  [13] ./src/cmp/map-cmp.tag 4.97 kB {0} [built]
-  [14] ./src/cmp/restaurant-detail.cmp.tag 1.63 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 7.52 kB {0} [built]
+  [14] ./src/cmp/restaurant-detail.cmp.tag 1.59 kB {0} [built]
     + 19 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
@@ -36,679 +36,1243 @@ Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist 
        2 modules
 Webpack Bundle Analyzer is started at http://127.0.0.1:8888
 Use Ctrl+C to close it
-Hash: 2aa26c47285511a9f097
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 1fa0447af5ada7c62e9e
 Version: webpack 3.11.0
-Time: 417ms
+Time: 314ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-   15 modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 3e5ffc8253d74f517f2e
-Version: webpack 3.11.0
-Time: 173ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [10] ./src/cmp/search-result-list.cmp.tag 2.21 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 7.38 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 0909cb02c468218f090c
+Hash: 54375dd3c7d1a4e4fdf0
 Version: webpack 3.11.0
-Time: 167ms
+Time: 322ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [10] ./src/cmp/search-result-list.cmp.tag 2.28 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 7.4 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: c73ea277847e9efc6589
+Hash: 0c30b0c88e21a9f1ed49
 Version: webpack 3.11.0
-Time: 97ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 5c80ca58d28a0e99edde
-Version: webpack 3.11.0
-Time: 243ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.11 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: dd2a31ab6b0530514de3
-Version: webpack 3.11.0
-Time: 91ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.08 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: ade5bbf5c73b97ee43a8
-Version: webpack 3.11.0
-Time: 317ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.19 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: dd1e637ee4d946c8f3b9
-Version: webpack 3.11.0
-Time: 469ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.14 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Hash: 8ad674b7890c7bd393e6
-Version: webpack 3.11.0
-Time: 496ms
-             Asset       Size  Chunks             Chunk Names
-css/app.bundle.css     185 kB       0  [emitted]  app
-    pages/app.html  997 bytes          [emitted]  
- + 1 hidden asset
-  [13] ./src/cmp/map-cmp.tag 5.14 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 9f3256e8966007b8f3b0
-Version: webpack 3.11.0
-Time: 319ms
+Time: 103ms
              Asset       Size  Chunks                    Chunk Names
   js/app.bundle.js     399 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 186 bytes {0} [built] [failed] [1 error]
+  [13] ./src/cmp/map-cmp.tag 165 bytes {0} [built] [failed] [1 error]
     + 14 hidden modules
 
 ERROR in ./src/cmp/map-cmp.tag
-Module parse failed: Unexpected token (13:12)
+Module parse failed: Unexpected token (148:1)
 You may need an appropriate loader to handle this file type.
 | 
-|             }
-|             });
-|         });
-| 
+|         }
+| });
+|     
+|   
  @ ./src/apps/app.app.tag 4:0-29
  @ ./src/apps/app.app.js
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: df0bc29d4765d51b48ee
+Hash: adcde83422fd97d302fa
 Version: webpack 3.11.0
-Time: 272ms
+Time: 224ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.29 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 7.41 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: c45c6156738e5031d031
+Hash: 28aefb49a2e896644636
 Version: webpack 3.11.0
-Time: 378ms
+Time: 53ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.36 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 8459203b6ceb48c2792a
+Hash: 2b08fb8980ab6e28ebe8
 Version: webpack 3.11.0
-Time: 191ms
+Time: 45ms
              Asset       Size  Chunks             Chunk Names
 css/app.bundle.css     185 kB       0  [emitted]  app
     pages/app.html  997 bytes          [emitted]  
  + 1 hidden asset
-  [13] ./src/cmp/map-cmp.tag 5.36 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: fc9b65b1842dda412e91
+Hash: 28aefb49a2e896644636
 Version: webpack 3.11.0
-Time: 215ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.38 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: fc3b324c6801e07d6f3f
-Version: webpack 3.11.0
-Time: 190ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.34 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Hash: 019eead6bac483d63397
-Version: webpack 3.11.0
-Time: 304ms
+Time: 59ms
              Asset       Size  Chunks             Chunk Names
 css/app.bundle.css     185 kB       0  [emitted]  app
     pages/app.html  997 bytes          [emitted]  
  + 1 hidden asset
-  [13] ./src/cmp/map-cmp.tag 5.34 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 56389fecceca45187ac3
+Hash: 2b08fb8980ab6e28ebe8
 Version: webpack 3.11.0
-Time: 313ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.36 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: a2d8dda0deaad36cb28b
-Version: webpack 3.11.0
-Time: 189ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.33 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 9e11bb1bf57b730051c9
-Version: webpack 3.11.0
-Time: 187ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.61 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Hash: c0cd51e56548b0b39e0d
-Version: webpack 3.11.0
-Time: 375ms
+Time: 128ms
              Asset       Size  Chunks             Chunk Names
 css/app.bundle.css     185 kB       0  [emitted]  app
     pages/app.html  997 bytes          [emitted]  
  + 1 hidden asset
-  [13] ./src/cmp/map-cmp.tag 5.61 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 13d38defefed42547155
+Hash: b4fc24b2a56e6361bae4
 Version: webpack 3.11.0
-Time: 267ms
+Time: 62ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.56 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 7.47 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 14060f141e4f7755b1a6
+Hash: 50d809ad1557c1c76808
+Version: webpack 3.11.0
+Time: 149ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.46 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 18b5bdcd9326010890a4
+Version: webpack 3.11.0
+Time: 54ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.45 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 043c5e33019d576a3dfa
+Version: webpack 3.11.0
+Time: 90ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 7.45 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 6c789acb600742aeb04f
+Version: webpack 3.11.0
+Time: 77ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.48 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: bfcd5ac71d2e16709741
+Version: webpack 3.11.0
+Time: 90ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 973a98358a359214bd96
+Version: webpack 3.11.0
+Time: 82ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: bfcd5ac71d2e16709741
+Version: webpack 3.11.0
+Time: 59ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 5345ca19341cf949f00a
+Version: webpack 3.11.0
+Time: 125ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: df5b5549ebad4191b3d7
+Version: webpack 3.11.0
+Time: 52ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.93 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: d334762e2ecb21301f66
+Version: webpack 3.11.0
+Time: 108ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.99 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: a7f474bfe78fa8456663
+Version: webpack 3.11.0
+Time: 63ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.99 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: e51c3a28c5e92e500b5d
+Version: webpack 3.11.0
+Time: 96ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.99 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 08ddbaeaec932dec81c4
+Version: webpack 3.11.0
+Time: 180ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.99 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 2952e7a4dd3c9b026d40
+Version: webpack 3.11.0
+Time: 81ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.99 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: 08ddbaeaec932dec81c4
+Version: webpack 3.11.0
+Time: 243ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.99 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: b3d78c276b1140604545
+Version: webpack 3.11.0
+Time: 83ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.99 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 89c1b696c8556661ee52
+Version: webpack 3.11.0
+Time: 69ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.95 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: 967073c9f36690b56129
+Version: webpack 3.11.0
+Time: 158ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.95 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: a940ea798b5e66df58ec
+Version: webpack 3.11.0
+Time: 57ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.93 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 8444bd9c7e3a8856463a
+Version: webpack 3.11.0
+Time: 166ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.93 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 538d4ced80f286db4ab0
+Version: webpack 3.11.0
+Time: 60ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.97 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 943c529b015bffb4d402
+Version: webpack 3.11.0
+Time: 55ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.97 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 4e7ff6d47c68887bffbe
+Version: webpack 3.11.0
+Time: 59ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.93 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 4c208f43da70706c7e3a
+Version: webpack 3.11.0
+Time: 60ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.97 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: d610131717c861f7b875
+Version: webpack 3.11.0
+Time: 71ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.97 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: 4c208f43da70706c7e3a
+Version: webpack 3.11.0
+Time: 165ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.97 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: dc10bac229eb3f25af1e
+Version: webpack 3.11.0
+Time: 62ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.96 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 5bed4912a9e7be1bd679
+Version: webpack 3.11.0
+Time: 163ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: bc759dce2f0a6f9bbf13
+Version: webpack 3.11.0
+Time: 201ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 7 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: 5bed4912a9e7be1bd679
+Version: webpack 3.11.0
+Time: 276ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 7 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 83f349a707184dea71d0
+Version: webpack 3.11.0
+Time: 122ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.02 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: d289cf232c1730da868c
+Version: webpack 3.11.0
+Time: 92ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.04 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 6f746a90833c0856ffac
+Version: webpack 3.11.0
+Time: 273ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.06 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 79187c1dae82ee0abc56
+Version: webpack 3.11.0
+Time: 105ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.1 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: b54eff895258b2a0847a
+Version: webpack 3.11.0
+Time: 81ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 7.1 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: 79187c1dae82ee0abc56
+Version: webpack 3.11.0
+Time: 292ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 7.1 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 5b27129308af1a2df45a
+Version: webpack 3.11.0
+Time: 149ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.24 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: eeb33adc780ca0a4e48c
+Version: webpack 3.11.0
+Time: 178ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 7.24 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: f29a348ed080a1ed28cd
+Version: webpack 3.11.0
+Time: 168ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.26 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: eeb33adc780ca0a4e48c
+Version: webpack 3.11.0
+Time: 131ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.24 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 7def4019a5c5143431bd
+Version: webpack 3.11.0
+Time: 284ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.12 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 3a8bbac3b6373201e786
+Version: webpack 3.11.0
+Time: 148ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.34 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 6ed762e49a282965f672
+Version: webpack 3.11.0
+Time: 255ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 7.34 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 77364c108810aa57b35d
+Version: webpack 3.11.0
+Time: 111ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 7.34 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 65f94bee23ab3e21c0ce
 Version: webpack 3.11.0
 Time: 236ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.59 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 7.32 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 2ac47295e2eeb88d66b3
+Hash: 2733ace860b1b2927a1f
 Version: webpack 3.11.0
-Time: 254ms
+Time: 140ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.41 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.63 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: fee75cdecc385cb4bb5c
+Hash: 93e16355afb9638f47fb
 Version: webpack 3.11.0
-Time: 361ms
+Time: 155ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.15 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.62 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: a7886c0e75a19b7f8d97
+Hash: e43fa6f4831ea0b56225
 Version: webpack 3.11.0
-Time: 191ms
+Time: 188ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     404 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.15 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.62 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: a8b9bc50d05374b505b1
+Hash: 7ee53b1fef77a9b915c6
 Version: webpack 3.11.0
-Time: 126ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.45 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: a4361ef13ff75324272a
-Version: webpack 3.11.0
-Time: 208ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.47 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 6a82a143f8002e8a6d60
-Version: webpack 3.11.0
-Time: 215ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.51 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Hash: a36d23c3adba43ec36a6
-Version: webpack 3.11.0
-Time: 608ms
+Time: 448ms
              Asset       Size  Chunks             Chunk Names
 css/app.bundle.css     185 kB       0  [emitted]  app
     pages/app.html  997 bytes          [emitted]  
  + 1 hidden asset
-  [13] ./src/cmp/map-cmp.tag 5.51 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.62 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: cfb97b67c092476b6417
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: e43fa6f4831ea0b56225
 Version: webpack 3.11.0
-Time: 329ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.51 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Hash: 1f771202e67743048f2d
-Version: webpack 3.11.0
-Time: 904ms
+Time: 115ms
              Asset       Size  Chunks             Chunk Names
 css/app.bundle.css     185 kB       0  [emitted]  app
     pages/app.html  997 bytes          [emitted]  
  + 1 hidden asset
-  [13] ./src/cmp/map-cmp.tag 5.51 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.62 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: daedc8ecd9e0d7eb0b26
+Hash: 51d090e730f48e12b106
 Version: webpack 3.11.0
-Time: 172ms
+Time: 105ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.53 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.6 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 24ffc6394db02d5a3eae
+Hash: 1b5843bc888a5a15ac0c
 Version: webpack 3.11.0
-Time: 318ms
+Time: 110ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.6 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: da25b364e7d7353a7afa
+Version: webpack 3.11.0
+Time: 170ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.55 kB {0} [built]
+   [5] ./src/common-config.js 1.57 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: e234416106b275cd64d8
+Hash: a35989966263a5ecaeb0
 Version: webpack 3.11.0
-Time: 244ms
+Time: 248ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.52 kB {0} [built]
+   [5] ./src/common-config.js 1.57 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 70128488b17b839f68db
-Version: webpack 3.11.0
-Time: 451ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.54 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: e1e1bcac5dd8a6da1fcd
-Version: webpack 3.11.0
-Time: 130ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.61 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 3d96e90c325c01902b38
-Version: webpack 3.11.0
-Time: 136ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.62 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 693ab9c60cd643876072
+Hash: a343f3607efcb9b1e9df
 Version: webpack 3.11.0
 Time: 111ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.64 kB {0} [built]
+   [5] ./src/common-config.js 1.58 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 9c9bd8228855cad8d30a
+Hash: 06f7403c8a0219ef0e2a
 Version: webpack 3.11.0
-Time: 244ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.67 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: fad7cabfa2e52ffaef2d
-Version: webpack 3.11.0
-Time: 217ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.67 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 8ac2d23efdc125b6be77
-Version: webpack 3.11.0
-Time: 145ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 5.65 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 2208eb5219c01f4eb307
-Version: webpack 3.11.0
-Time: 324ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.08 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 810cb54608c214960d36
-Version: webpack 3.11.0
-Time: 220ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.08 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 4c7ca5f42aaeff9b72d6
-Version: webpack 3.11.0
-Time: 406ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.11 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 6c2697705744695ef952
-Version: webpack 3.11.0
-Time: 124ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.43 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
-Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: aa06e1bc1e249f0506ea
-Version: webpack 3.11.0
-Time: 199ms
+Time: 250ms
              Asset       Size  Chunks                    Chunk Names
   js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.63 kB {0} [built]
+   [5] ./src/common-config.js 1.67 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 4419aa49f147f0894fb8
+Hash: 86d3a81c0e1f9dac2343
 Version: webpack 3.11.0
-Time: 240ms
+Time: 123ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     399 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 234 bytes {0} [built] [failed] [1 error]
+   [5] ./src/common-config.js 1.56 kB {0} [built]
     + 14 hidden modules
-
-ERROR in ./src/cmp/map-cmp.tag
-Module parse failed: Unexpected token (140:47)
-You may need an appropriate loader to handle this file type.
-| 
-|         }
-|         self.placeMarkerAndPanTo(lat_lng, map) {
-|             debugger
-|         }
- @ ./src/apps/app.app.tag 4:0-29
- @ ./src/apps/app.app.js
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 8bcccfbfd5c4ff4b858c
+Hash: da3b0b18d7e8bd947219
 Version: webpack 3.11.0
-Time: 362ms
+Time: 113ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.62 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: cc4e7e629487402c2080
+Version: webpack 3.11.0
+Time: 100ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [10] ./src/cmp/search-result-list.cmp.tag 2.26 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 6887b32df7356a6acae2
+Version: webpack 3.11.0
+Time: 93ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [10] ./src/cmp/search-result-list.cmp.tag 2.22 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: f7e0c2d46b6fed1dfbca
+Version: webpack 3.11.0
+Time: 107ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [10] ./src/cmp/search-result-list.cmp.tag 2.22 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: f67ccab7b6f360f622ee
+Version: webpack 3.11.0
+Time: 253ms
              Asset       Size  Chunks             Chunk Names
 css/app.bundle.css     185 kB       0  [emitted]  app
     pages/app.html  997 bytes          [emitted]  
  + 1 hidden asset
-  [13] ./src/cmp/map-cmp.tag 234 bytes {0} [built] [failed] [1 error]
+  [10] ./src/cmp/search-result-list.cmp.tag 2.22 kB {0} [built]
     + 14 hidden modules
-
-ERROR in ./src/cmp/map-cmp.tag
-Module parse failed: Unexpected token (140:47)
-You may need an appropriate loader to handle this file type.
-| 
-|         }
-|         self.placeMarkerAndPanTo(lat_lng, map) {
-|             debugger
-|         }
- @ ./src/apps/app.app.tag 4:0-29
- @ ./src/apps/app.app.js
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: fe3553100985cce362f9
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: f7e0c2d46b6fed1dfbca
 Version: webpack 3.11.0
-Time: 229ms
+Time: 87ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [10] ./src/cmp/search-result-list.cmp.tag 2.22 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: f67ccab7b6f360f622ee
+Version: webpack 3.11.0
+Time: 127ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [10] ./src/cmp/search-result-list.cmp.tag 2.22 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 5aa8257c0d41d4c35298
+Version: webpack 3.11.0
+Time: 116ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     405 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.44 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 06653e9af80d74f2a9d6
+Version: webpack 3.11.0
+Time: 102ms
              Asset       Size  Chunks                    Chunk Names
   js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.65 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.49 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 67a44330fe890f0289fb
+Hash: f7c400c5d0aa897d59fe
 Version: webpack 3.11.0
-Time: 265ms
+Time: 153ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.55 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: a657106e75e61c88e8fd
+Version: webpack 3.11.0
+Time: 75ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.54 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 5ad943bea5ffff987c48
+Version: webpack 3.11.0
+Time: 173ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.55 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: f6f8ac864b6381c32dd2
+Version: webpack 3.11.0
+Time: 80ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.56 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 4660c57132dc82f87a2d
+Version: webpack 3.11.0
+Time: 161ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.56 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 8e69bea91bfde5fff0d7
+Version: webpack 3.11.0
+Time: 355ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.56 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 4660c57132dc82f87a2d
+Version: webpack 3.11.0
+Time: 143ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.56 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: bde4e4a10daf99f59894
+Version: webpack 3.11.0
+Time: 104ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.58 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 0c1772189d8e8394e83a
+Version: webpack 3.11.0
+Time: 185ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.58 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 262348a9243aaf47c297
+Version: webpack 3.11.0
+Time: 176ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.61 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 0c1772189d8e8394e83a
+Version: webpack 3.11.0
+Time: 139ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.58 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 385ddbeceace1ad2f70f
+Version: webpack 3.11.0
+Time: 141ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.6 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 925750d2607ca31218e8
+Version: webpack 3.11.0
+Time: 116ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.6 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: 6cd40205a5e22f2cdfd1
+Version: webpack 3.11.0
+Time: 340ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.6 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 925750d2607ca31218e8
+Version: webpack 3.11.0
+Time: 399ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.6 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 3a808779e58edf9fa172
+Version: webpack 3.11.0
+Time: 190ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.61 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 42d1d793a8c752caa329
+Version: webpack 3.11.0
+Time: 432ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.61 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 4b2005f9a74c38474b20
+Version: webpack 3.11.0
+Time: 152ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [10] ./src/cmp/search-result-list.cmp.tag 2.29 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 867943131ef2eb21fca6
+Version: webpack 3.11.0
+Time: 125ms
+             Asset       Size  Chunks                    Chunk Names
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
+css/app.bundle.css     185 kB       0  [emitted]         app
+    pages/app.html  997 bytes          [emitted]         
+  [13] ./src/cmp/map-cmp.tag 6.73 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
+Hash: 0db341cbfa20da92a9a5
+Version: webpack 3.11.0
+Time: 83ms
              Asset       Size  Chunks                    Chunk Names
   js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
@@ -719,81 +1283,81 @@ Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 997b753ff2c614740aa1
+Hash: 1f7ba44c15c1f1859614
 Version: webpack 3.11.0
-Time: 214ms
+Time: 185ms
              Asset       Size  Chunks                    Chunk Names
   js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.83 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.58 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 801e32a168e142544777
+Hash: 1f7b4a6095c5ab8a7528
 Version: webpack 3.11.0
-Time: 245ms
+Time: 183ms
              Asset       Size  Chunks                    Chunk Names
   js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.85 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.56 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: dafcff779b520e676c6c
+Hash: c23bf7890434fdfe61db
 Version: webpack 3.11.0
-Time: 207ms
+Time: 372ms
              Asset       Size  Chunks                    Chunk Names
   js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 6.85 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.62 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 5b638d12098046560405
+Hash: c94818d1bc9bededeb07
 Version: webpack 3.11.0
-Time: 259ms
+Time: 91ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     407 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 7.49 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.62 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: 30f9a0b5cfd3ff85566c
+Hash: ba07849de7d954155b12
 Version: webpack 3.11.0
-Time: 323ms
+Time: 128ms
              Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     407 kB       0  [emitted]  [big]  app
+  js/app.bundle.js     406 kB       0  [emitted]  [big]  app
 css/app.bundle.css     185 kB       0  [emitted]         app
     pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 7.5 kB {0} [built]
+  [13] ./src/cmp/map-cmp.tag 6.67 kB {0} [built]
+    + 14 hidden modules
+Child html-webpack-plugin for "pages/app.html":
+     1 asset
+       4 modules
+Hash: 8cc26b4dce482eeb34f1
+Version: webpack 3.11.0
+Time: 298ms
+             Asset       Size  Chunks             Chunk Names
+css/app.bundle.css     185 kB       0  [emitted]  app
+    pages/app.html  997 bytes          [emitted]  
+ + 1 hidden asset
+  [13] ./src/cmp/map-cmp.tag 6.67 kB {0} [built]
     + 14 hidden modules
 Child html-webpack-plugin for "pages/app.html":
      1 asset
        4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json
-Hash: bab9be44bcac38be227c
-Version: webpack 3.11.0
-Time: 382ms
-             Asset       Size  Chunks                    Chunk Names
-  js/app.bundle.js     407 kB       0  [emitted]  [big]  app
-css/app.bundle.css     185 kB       0  [emitted]         app
-    pages/app.html  997 bytes          [emitted]         
-  [13] ./src/cmp/map-cmp.tag 7.5 kB {0} [built]
-    + 14 hidden modules
-Child html-webpack-plugin for "pages/app.html":
-     1 asset
-       4 modules
 Webpack Bundle Analyzer saved stats file to /home/sujeet/Labs/oliv-ai/public/stats/app-stats.json

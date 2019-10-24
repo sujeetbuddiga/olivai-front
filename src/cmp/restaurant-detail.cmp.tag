@@ -61,7 +61,6 @@
             }
 
             $.ajax(settings).done(function (response) {
-                console.log(response);
                 self.data = response
                 self.update()
             });
